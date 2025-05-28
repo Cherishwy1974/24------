@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高职数学数字化教材开发与应用研究 - 修复版</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* 基础重置和变量 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('DJI_0015.jpg') center/cover no-repeat fixed;
+            position: relative;
+        }
+
+        /* 动态背景效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2), transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: rotate(90deg) scale(1.1);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1);
+            }
+
+            75% {
+                transform: rotate(270deg) scale(1.1);
+            }
+        }
+
+        /* 主容器 */
+        .presentation-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        /* 主幻灯片容器 */
+        .slide-frame {
+            position: relative;
+            width: 95vw;
+            height: 90vh;
+            max-width: 1200px;
+            max-height: 800px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(1);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(246, 246, 247, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(243, 243, 244, 0.3);
+        }
+
+        /* 装饰性光效 */
+        .slide-frame::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 按压效果 */
+        .slide-frame.pressing {
+            transform: scale(0.98);
+            box-shadow:
+                inset 0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 -12px 40px rgba(255, 255, 255, 0.05),
+                0 2px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* 幻灯片内容区域 */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            border-radius: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            color: var(--text-primary);
+            background: transparent;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            z-index: 2;
+        }
+
+        /* 滑动内容区域 - 修复溢出问题 */
+        .slide-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        /* 统一标题样式 */
+        .content-title {
+            font-size: 1.6rem !important;
+            line-height: 1.3 !important;
+            text-align: center;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            flex-shrink: 0;
+            letter-spacing: -0.3px;
+        }
+
+        /* 统一卡片样式 - 修复颜色对比问题 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .glass-card h3 {
+            font-size: 1.1rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .glass-card p,
+        .glass-card li {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .glass-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .glass-card li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .glass-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 0.7rem;
+        }
+
+        .glass-card li:hover {
+            padding-left: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* 特色框样式 */
+        .feature-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 高亮文本 */
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        /* 布局网格 */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .four-column {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 统计数据样式 */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 0.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 12px 12px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .number-counter {
+            font-size: 1.8rem !important;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .counter-text,
+        .stat-desc,
+        .stat-label {
+            font-size: 0.85rem !important;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            color: var(--success);
+            font-weight: 700;
+            margin: 0.3rem 0;
+        }
+
+        /* 导航控制 */
+        .nav-controls {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 进度指示器 */
+        .indicators {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 1000;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+        }
+
+        /* 章节指示器 */
+        .chapter-info {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(139, 92, 246, 0.8));
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========== 各页面特殊样式 ========== */
+
+        /* 第3页：项目背景 - 蓝紫渐变 */
+        .slide[data-slide="3"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .slide[data-slide="3"] .content-title {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide[data-slide="3"] .glass-card::before {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .slide[data-slide="3"] .glass-card h3 {
+            color: #5a67d8;
+        }
+
+        .slide[data-slide="3"] .glass-card li::before {
+            color: #5a67d8;
+        }
+
+        .slide[data-slide="3"] .highlight {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 第4页：项目目标 - 粉红渐变 */
+        .slide[data-slide="4"] {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .slide[data-slide="4"] .content-title {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide[data-slide="4"] .glass-card h3 {
+            color: #e91e63;
+        }
+
+        .slide[data-slide="4"] .glass-card li::before {
+            color: #e91e63;
+        }
+
+        .slide[data-slide="4"] .stat-item::before {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* 第5页：研究内容 - 蓝色渐变 */
+        .slide[data-slide="5"] {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .slide[data-slide="5"] .content-title {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide[data-slide="5"] .glass-card h3 {
+            color: #0066cc;
+        }
+
+        .slide[data-slide="5"] .glass-card li::before {
+            color: #0066cc;
+        }
+
+        /* 第6页：三维进阶 - 青绿渐变 */
+        .slide[data-slide="6"] {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .slide[data-slide="6"] .content-title {
+            color: #2d5aa0;
+        }
+
+        .slide[data-slide="6"] .glass-card h3 {
+            color: #2d5aa0;
+        }
+
+        .slide[data-slide="6"] .glass-card li::before {
+            color: #2d5aa0;
+        }
+
+        /* 第7页：核心成果 - 粉橙渐变 */
+        .slide[data-slide="7"] {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .slide[data-slide="7"] .content-title {
+            color: #be185d;
+        }
+
+        .slide[data-slide="7"] .glass-card h3 {
+            color: #be185d;
+        }
+
+        .slide[data-slide="7"] .glass-card li::before {
+            color: #be185d;
+        }
+
+        .slide[data-slide="7"] .glass-card a {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: var(--primary);
+            color: white;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .slide[data-slide="7"] .glass-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* 第8页：教学策略 - 暖橙渐变 */
+        .slide[data-slide="8"] {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .slide[data-slide="8"] .content-title {
+            color: #d2691e;
+        }
+
+        .slide[data-slide="8"] .dual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide[data-slide="8"] .goals-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide[data-slide="8"] .concept-card,
+        .slide[data-slide="8"] .goal-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: var(--text-primary);
+        }
+
+        .slide[data-slide="8"] .concept-card h3,
+        .slide[data-slide="8"] .goal-card h3 {
+            color: #d2691e;
+            font-size: 1rem !important;
+            margin-bottom: 0.6rem;
+        }
+
+        .slide[data-slide="8"] .concept-list,
+        .slide[data-slide="8"] .goal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .slide[data-slide="8"] .concept-list li,
+        .slide[data-slide="8"] .goal-list li {
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+        }
+
+        .slide[data-slide="8"] .concept-list li::before,
+        .slide[data-slide="8"] .goal-list li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #d2691e;
+            font-size: 0.6rem;
+            top: 0.4rem;
+        }
+
+        .slide[data-slide="8"] .highlight-section {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .slide[data-slide="8"] .highlight-label {
+            color: #d2691e;
+            font-weight: 600;
+        }
+
+        /* 第9页：效果评价 - 天蓝渐变 */
+        .slide[data-slide="9"] {
+            background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+        }
+
+        .slide[data-slide="9"] .content-title {
+            color: #1e40af;
+        }
+
+        .slide[data-slide="9"] .overview-text {
+            text-align: center;
+            color: #1e40af;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .slide[data-slide="9"] .glass-card h3 {
+            color: #1e40af;
+        }
+
+        .slide[data-slide="9"] .glass-card li::before {
+            color: #1e40af;
+        }
+
+        .slide[data-slide="9"] .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        /* 第10页：项目管理 - 深蓝渐变 */
+        .slide[data-slide="10"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .slide[data-slide="10"] .content-title {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide[data-slide="10"] .glass-card h3 {
+            color: #667eea;
+        }
+
+        .slide[data-slide="10"] .glass-card li::before {
+            color: #667eea;
+        }
+
+        .slide[data-slide="10"] .glass-card p {
+            margin-top: 0.8rem;
+            color: #4a5568;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            padding: 0.8rem;
+        }
+
+        /* 第11页：创新特色 - 彩虹渐变 */
+        .slide[data-slide="11"] {
+            background: radial-gradient(circle at 30% 40%, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+        }
+
+        .slide[data-slide="11"] .content-title {
+            color: white;
+            font-weight: 800;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide[data-slide="11"] .glass-card h3 {
+            color: #2d3436;
+            font-size: 1.1rem !important;
+        }
+
+        .slide[data-slide="11"] .highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* 封面页样式保持不变 */
+        .slide-cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .dynamic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            box-shadow: 0 4px 8px rgba(31, 38, 135, 0.2), inset 0 2px 2px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 8px;
+            height: 8px;
+            animation-delay: 0s;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 6px;
+            height: 6px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 11px;
+            height: 11px;
+            animation-delay: 3s;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 7s;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+            background: rgba(255, 255, 255, 0.11);
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+                border-radius: 10%;
+                box-shadow: 0 4px 15px rgba(31, 38, 135, 0.2);
+            }
+
+            50% {
+                opacity: 0.5;
+                box-shadow: 0 8px 20px rgba(31, 38, 135, 0.3);
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+                box-shadow: 0 2px 10px rgba(31, 38, 135, 0.1);
+            }
+        }
+
+        .school-header {
+            position: fixed;
+            top: 1.2rem;
+            left: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0);
+            padding: 0.4rem 1rem 0.4rem 0.4rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px -4px rgba(22, 119, 255, 0.06), 0 3px 8px -5px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e3f0ff;
+            z-index: 20;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+
+        .school-header:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 28px 0 rgba(22, 119, 255, 0.13), 0 4px 16px 0 rgba(0, 0, 0, 0.07);
+        }
+
+        .school-logo {
+            width: 28px;
+            height: 28px;
+            background-image: url('xapi.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 6px rgba(22, 119, 255, 0.10);
+            transition: box-shadow 0.3s;
+        }
+
+        .school-name {
+            font-size: 0.92rem;
+            color: #1555c0;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-shadow: 0 1px 4px rgba(22, 119, 255, 0.06);
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1677ff;
+            margin: 2rem auto;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(90deg, #e3f0ff 0%, #f8fbff 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px 0 rgba(22, 119, 255, 0.10), 0 2px 12px 0 rgba(0, 0, 0, 0.03);
+            position: relative;
+            max-width: 85%;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border-left: 6px solid #1677ff;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 12px rgba(22, 119, 255, 0.12), 0 1px 1.5px #fff, 0 0px 5px #b2d2fa;
+        }
+
+        .main-title:hover {
+            color: #0958d9;
+            background: linear-gradient(90deg, #f0f8ff 0%, #e3f0ff 100%);
+            text-shadow: 0 4px 20px rgba(22, 119, 255, 0.20), 0 2px 8px #b2d2fa, 0 1px 0 #fff;
+            box-shadow: 0 8px 32px 0 rgba(22, 119, 255, 0.14), 0 2px 18px 0 rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px) scale(1.015);
+        }
+
+        .presenter-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgb(255, 255, 255);
+            backdrop-filter: blur(15px);
+            padding: 1.5rem 2.5rem;
+            border-radius: 60px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.452);
+            margin-top: 40px;
+        }
+
+        .presenter-item {
+            text-align: center;
+        }
+
+        .presenter-label {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .presenter-value {
+            font-size: 1.4rem;
+            color: #1677ff;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(22, 119, 255, 0.1);
+        }
+
+        .presenter-divider {
+            width: 2px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, rgba(22, 119, 255, 0.6), transparent);
+        }
+
+        /* 目录页样式 */
+        .slide-toc {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toc-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .toc-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2px;
+        }
+
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            flex: 1;
+        }
+
+        .chapter-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--text-primary);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+
+        .chapter-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .chapter-description {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        /* 致谢页样式 */
+        .slide[data-slide="12"] {
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .slide[data-slide="12"] .thanks-slide-cover {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .slide[data-slide="12"] .thanks-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .slide[data-slide="12"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2), transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .slide-frame {
+                width: 90vw;
+                height: 85vh;
+            }
+
+            .three-column,
+            .two-column,
+            .four-column {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-title {
+                font-size: 1.4rem !important;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-frame {
+                width: 95vw;
+                height: 90vh;
+            }
+
+            .slide {
+                padding: 1rem;
+            }
+
+            .content-title {
+                font-size: 1.2rem !important;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dual-section,
+            .goals-section {
+                grid-template-columns: 1fr;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+                padding: 1rem 1.5rem;
+                margin: 1.5rem auto;
+            }
+
+            .presenter-info {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2rem;
+            }
+        }
+
+        /* 加载动画 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 页面切换动画 */
+        .slide-enter {
+            animation: slideEnter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideEnter {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .slide-exit {
+            animation: slideExit 0.3s ease-out;
+        }
+
+        @keyframes slideExit {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-15px) scale(0.98);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <div class="presentation-container">
+        <div class="slide-frame" id="slideFrame">
+            <!-- 幻灯片1：封面 -->
+            <div class="slide active" data-slide="1">
+                <div class="slide-cover">
+                    <div class="dynamic-bg" id="dynamicBg">
+                        <ul class="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="school-header">
+                        <div class="school-logo"></div>
+                        <h2 class="school-name">西安航空职业技术学院</h2>
+                    </div>
+                    <h1 class="main-title">高职数学数字化教材开发与应用研究</h1>
+                    <div class="presenter-info">
+                        <div class="presenter-item">
+                            <div class="presenter-label">汇报人</div>
+                            <div class="presenter-value">宋文雅</div>
+                        </div>
+                        <div class="presenter-divider"></div>
+                        <div class="presenter-item">
+                            <div class="presenter-label">汇报时间</div>
+                            <div class="presenter-value">2025年5月</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片2：目录 -->
+            <div class="slide" data-slide="2">
+                <div class="slide-toc">
+                    <div class="toc-title">目录</div>
+                    <div class="chapters-grid">
+                        <div class="chapter-card">
+                            <div class="chapter-title">项目概述</div>
+                            <div class="chapter-description">背景意义、总体目标与立项依据</div>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-title">研究内容</div>
+                            <div class="chapter-description">框架设计与"三维进阶"体系</div>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-title">核心成果</div>
+                            <div class="chapter-description">数字教材与三大支撑平台</div>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-title">研究方法</div>
+                            <div class="chapter-description">评价体系与技术路线</div>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-title">项目管理</div>
+                            <div class="chapter-description">预期成果与实施保障</div>
+                        </div>
+                        <div class="chapter-card">
+                            <div class="chapter-title">总结致谢</div>
+                            <div class="chapter-description">价值总结与交流答疑</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片3：项目背景与研究意义 -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">高职数学教学面临的挑战与机遇</h2>
+                        <div class="three-column">
+                            <div class="glass-card">
+                                <h3>⚠️ 当前挑战</h3>
+                                <ul>
+                                    <li>教学内容与产业需求结合不够紧密</li>
+                                    <li>数学知识抽象性导致学生学习兴趣不高</li>
+                                    <li>传统教学模式难以满足个性化学习需求</li>
+                                    <li>师生数字化素养亟待提升</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>📜 政策导向</h3>
+                                <ul>
+                                    <li>国家<span class="highlight">"教育数字化战略行动"</span>深入推进</li>
+                                    <li>高等职业教育课程改革要求体现五性</li>
+                                    <li>《关于深化现代职业教育体系建设改革的意见》明确要求</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🎯 研究必要性</h3>
+                                <ul>
+                                    <li>直面挑战，抓住数字化转型机遇</li>
+                                    <li>探索高职数学数字化教材开发新路径</li>
+                                    <li>提升教学质量，培养高素质技术技能人才</li>
+                                    <li>为区域职业教育发展贡献力量</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="feature-box">
+                            <span class="highlight">预期改进效果：</span>
+                            通过可视化、交互式学习显著提升学生学习积极性，基于真实职业场景培养数学应用能力，师生共同提升数字化素养，形成可复制推广的数字化教学解决方案。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片4：项目总体目标 -->
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">数智赋能：构建高职数学教学新生态</h2>
+
+                        <div class="feature-box">
+                            <span class="highlight">最终目标：</span>
+                            打造一款数智赋能的新形态教材，构建一个<span class="highlight">"三维一体"的数字化教材建设体系</span>，
+                            形成可复制、可推广的高职数学数字化教学解决方案
+                        </div>
+
+                        <div class="two-column">
+                            <div class="glass-card">
+                                <h3>📚 核心成果</h3>
+                                <ul>
+                                    <li>开发数字化教材《高职应用数学》</li>
+                                    <li>建设三大支撑平台（虚拟实验库、思政案例库、智能题库）</li>
+                                    <li>形成完整的教学解决方案</li>
+                                    <li>构建科学的效果评价体系</li>
+                                    <li>培养一支数字化教学团队</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>🎯 预期效果</h3>
+                                <ul>
+                                    <li>提升学生数学学习兴趣和能力</li>
+                                    <li>增强数学知识与专业应用的结合度</li>
+                                    <li>培养学生数字化学习能力</li>
+                                    <li>为高职数学教学改革提供示范</li>
+                                    <li>推动区域职业教育数字化转型</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="13">13</span>
+                                <span class="counter-text">教学模块</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="253">253</span>
+                                <span class="counter-text">数字资源</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="3">3</span>
+                                <span class="counter-text">支撑平台</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="46">46</span>
+                                <span class="counter-text">教学单元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片5：研究内容与方法 -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">"三重融合"创新理念指导下的研究框架</h2>
+
+                        <div class="feature-box">
+                            <span class="highlight">创新理念：</span>学科知识与职业场景融合 • 数字技术与教学方法融合 • 线上资源与线下活动融合
+                        </div>
+
+                        <div class="two-column">
+                            <div class="glass-card">
+                                <h3>📋 主要研究内容</h3>
+                                <ul>
+                                    <li><span class="highlight">内容体系重构：</span>"三维进阶"设计理念</li>
+                                    <li><span class="highlight">教学策略建设：</span>"双主线、双驱动、三目标"</li>
+                                    <li><span class="highlight">技术融合应用：</span>AI赋能与三大平台建设</li>
+                                    <li><span class="highlight">效果评价研究：</span>科学评估与实证分析</li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>🔬 研究方法</h3>
+                                <ul>
+                                    <li>文献研究法：理论基础梳理</li>
+                                    <li><span class="highlight">行动研究法：</span>核心方法，贯穿全程</li>
+                                    <li>案例研究法：产教融合案例分析</li>
+                                    <li>准实验研究法：效果对比评价</li>
+                                    <li>数据分析法：学习行为数据挖掘</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片6："三维进阶"设计理念详解 -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">构建立体化、进阶式的数学学习体系</h2>
+
+                        <div class="glass-card">
+                            <h3>🎯 设计理念核心</h3>
+                            <p>"三维进阶"是本项目的核心创新点，通过<span
+                                    class="highlight">知识维度、能力维度、素养维度</span>的有机融合，构建从基础到高阶、从理论到实践、从知识到素养的进阶式学习路径。</p>
+                        </div>
+
+                        <div class="three-column">
+                            <div class="glass-card">
+                                <h3>📚 知识习得层</h3>
+                                <p style="color: var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.9rem;">
+                                    理论精讲-虚拟仿真-即时评测</p>
+                                <ul>
+                                    <li>13个核心模块，46个教学单元</li>
+                                    <li>253个配套数字资源点</li>
+                                    <li>覆盖微积分、线性代数、概率统计</li>
+                                    <li>支持个性化学习路径定制</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🔧 场景应用层</h3>
+                                <p style="color: var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.9rem;">
+                                    数学建模-数据分析-算法逻辑</p>
+                                <ul>
+                                    <li>13章产教融合项目案例</li>
+                                    <li>对接航空制造等专业场景</li>
+                                    <li>真实工作任务驱动</li>
+                                    <li>培养解决实际问题能力</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🌟 素养提升层</h3>
+                                <p style="color: var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.9rem;">
+                                    建模思维-算法实现-决策支持</p>
+                                <ul>
+                                    <li>Python工具链实战应用</li>
+                                    <li>45段可运行代码示例</li>
+                                    <li>培养计算思维能力</li>
+                                    <li>提升数字化素养水平</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片7：核心成果展示 -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">数字化教材与四大支撑平台（已取得阶段性成果）</h2>
+
+                        <div class="feature-box">
+                            <span class="highlight">建设思路：</span>"协同共建、严控质量、动态更新、突出应用"
+                        </div>
+
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="157">157</span>
+                                <span class="counter-text">产业融合案例</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="82">82</span>
+                                <span class="counter-text">交互式实验</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="126">126</span>
+                                <span class="counter-text">微课视频</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number-counter" data-count="132">132</span>
+                                <span class="counter-text">思政教学案例</span>
+                            </div>
+                        </div>
+
+                        <div class="four-column">
+                            <div class="glass-card">
+                                <h3>📚 数字化教材</h3>
+                                <p>《高职应用数学》初步完成，集成理论精讲、虚拟仿真、即时评测等功能模块。</p>
+                                <p><span class="highlight">特色：</span>深度融合"三维进阶"设计理念。</p>
+                                <a href="https://textbookreader.lessonplan.cn/preview.html" target="_blank">在线预览 →</a>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>🔬 虚拟实验库</h3>
+                                <p>交互式可视化高等数学虚拟实验库已建成并投入使用。</p>
+                                <p><span class="highlight">功能：</span>3D可视化实验，破解抽象认知难题。</p>
+                                <a href="https://prod-9gua1kh1e319f2a2-1327807172.tcloudbaseapp.com/"
+                                    target="_blank">访问平台 →</a>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>🤖 智能题库</h3>
+                                <p>基于DeepSeek API的交互式智能题库原型已开发完成。</p>
+                                <p><span class="highlight">亮点：</span>AI个性化推荐与智能答疑支持。</p>
+                                <a href="https://mathopli.xyz/" target="_blank">体验AI题库 →</a>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>🌟 思政案例库</h3>
+                                <p>专业应用数学思政案例库，涵盖数学文化、科学精神等维度。</p>
+                                <p><span class="highlight">规模：</span>132个典型思政教学案例。</p>
+                                <a href="https://dynamic-cases.web.app/" target="_blank">访问案例库 →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片8：教学策略创新 -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">"双主线、双驱动、三目标"资源建设应用策略</h2>
+
+                        <div class="dual-section">
+                            <div class="concept-card">
+                                <h3><span class="icon">🔄</span>双主线融合</h3>
+                                <ul class="concept-list">
+                                    <li>数学知识体系为内容主线</li>
+                                    <li>信息技术为方法主线</li>
+                                    <li>基于行动导向的情境任务驱动</li>
+                                </ul>
+                            </div>
+
+                            <div class="concept-card">
+                                <h3><span class="icon">⚡</span>双驱动对接</h3>
+                                <ul class="concept-list">
+                                    <li>产教融合驱动：构建产业案例库</li>
+                                    <li>科教融汇驱动：数学建模与专业对接</li>
+                                    <li>培养创新及应用能力</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="goals-section">
+                            <div class="goal-card">
+                                <h3>🎓 认知目标</h3>
+                                <ul class="goal-list">
+                                    <li>可视化技术呈现</li>
+                                    <li>交互式概念理解</li>
+                                    <li>虚拟仿真实验</li>
+                                </ul>
+                            </div>
+
+                            <div class="goal-card">
+                                <h3>💡 能力目标</h3>
+                                <ul class="goal-list">
+                                    <li>数学建模能力</li>
+                                    <li>数据分析能力</li>
+                                    <li>问题解决能力</li>
+                                </ul>
+                            </div>
+
+                            <div class="goal-card">
+                                <h3>🚀 素养目标</h3>
+                                <ul class="goal-list">
+                                    <li>自主学习能力</li>
+                                    <li>AI工具应用</li>
+                                    <li>终身学习意识</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="highlight-section">
+                            <span class="highlight-label">💫 创新亮点：</span>
+                            <span class="highlight-text">构建"沉浸式"学习环境，将抽象的数学概念形象化、枯燥的数学公式生动化，真正实现"做中学、学中做"的教学理念</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片9：效果评价体系 -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">构建数字化教材学习效果评价体系</h2>
+
+                        <p class="overview-text">
+                            依据布鲁姆教育目标分类学，围绕<span class="highlight">"知识-技能-思维-价值观"</span>构建多维度评价框架
+                        </p>
+
+                        <div class="three-column">
+                            <div class="glass-card">
+                                <h3>📝 评价维度</h3>
+                                <ul>
+                                    <li>知识掌握度</li>
+                                    <li>技能应用水平</li>
+                                    <li>数学思维能力</li>
+                                    <li>创新实践能力</li>
+                                    <li>学习态度表现</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>📈 评价方法</h3>
+                                <ul>
+                                    <li>学习行为数据分析</li>
+                                    <li>在线测试与作业</li>
+                                    <li>项目实践评估</li>
+                                    <li>同伴互评机制</li>
+                                    <li>增值性评价</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🔄 评价应用</h3>
+                                <ul>
+                                    <li>实时学情反馈</li>
+                                    <li>个性化学习建议</li>
+                                    <li>教学策略调整</li>
+                                    <li>资源优化配置</li>
+                                    <li>质量持续改进</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="stats-section">
+                            <div class="stat-item">
+                                <div class="stat-label">学习兴趣</div>
+                                <div class="stat-value">↑35%</div>
+                                <div class="stat-desc">提升幅度</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">知识掌握</div>
+                                <div class="stat-value">↑28%</div>
+                                <div class="stat-desc">提升幅度</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">应用能力</div>
+                                <div class="stat-value">↑42%</div>
+                                <div class="stat-desc">提升幅度</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">满意度</div>
+                                <div class="stat-value">↑38%</div>
+                                <div class="stat-desc">提升幅度</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片10：项目管理与实施 -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">科学管理，有序推进，确保项目高质量完成</h2>
+
+                        <div class="two-column">
+                            <div class="glass-card">
+                                <h3>🏗️ 项目组织与分工</h3>
+                                <ul>
+                                    <li><span class="highlight">项目主持人：</span>宋文雅（总体负责、方案设计、协调推进）</li>
+                                    <li><span class="highlight">项目参与人：</span></li>
+                                    <li>郑雅茹（内容开发、资源建设）</li>
+                                    <li>王可涵（技术实现、平台维护）</li>
+                                    <li>韦华（教学实验、数据分析）</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>💰 经费管理</h3>
+                                <ul>
+                                    <li><span class="highlight">总预算：</span>2万元</li>
+                                    <li>资料费：0.1万元（5%）</li>
+                                    <li>差旅费：0.8万元（40%）</li>
+                                    <li>印刷费：0.9万元（45%）</li>
+                                    <li>其他费用：0.2万元（10%）</li>
+                                </ul>
+                                <p><span class="highlight">管理原则：</span>严格按照学校科研经费管理办法，确保专款专用</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card">
+                            <h3>🎯 预期成果清单</h3>
+                            <ul
+                                style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; list-style: none; padding: 0;">
+                                <li style="text-align: center; padding: 0;"><span class="highlight">研究报告</span><br>1份
+                                </li>
+                                <li style="text-align: center; padding: 0;"><span class="highlight">学术论文</span><br>1篇
+                                </li>
+                                <li style="text-align: center; padding: 0;">数字化教材<br>1部</li>
+                                <li style="text-align: center; padding: 0;">支撑平台<br>3个</li>
+                                <li style="text-align: center; padding: 0;">教学案例集<br>1套</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片11：创新特色总结 -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content">
+                    <div class="content-area">
+                        <h2 class="content-title">五大创新特色：引领高职数学教学变革</h2>
+
+                        <div class="glass-card">
+                            <h3>🌟 创新点一：理念创新</h3>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="flex: 1;">
+                                    <p><span class="highlight">"三维进阶"教学设计理念</span></p>
+                                    <p style="margin-top: 0.3rem; color: var(--text-secondary); font-size: 0.9rem;">
+                                        首创知识习得、场景应用、素养提升三个维度的进阶式学习模式
+                                    </p>
+                                </div>
+                                <div style="font-size: 2rem; opacity: 0.8;">🚀</div>
+                            </div>
+                        </div>
+
+                        <div class="two-column">
+                            <div class="glass-card">
+                                <h3>💡 创新点二：内容创新</h3>
+                                <p><span class="highlight">产教深度融合的案例体系</span></p>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>157个真实产业案例</li>
+                                    <li>对接航空制造等特色专业</li>
+                                    <li>突出职业教育特色</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🔧 创新点三：技术创新</h3>
+                                <p><span class="highlight">AI+虚拟仿真技术融合</span></p>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>DeepSeek API智能答疑</li>
+                                    <li>3D可视化数学实验</li>
+                                    <li>个性化学习路径推荐</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="two-column">
+                            <div class="glass-card">
+                                <h3>📚 创新点四：资源创新</h3>
+                                <p><span class="highlight">立体化数字资源矩阵</span></p>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>教材-平台-资源一体化</li>
+                                    <li>动态更新机制（年更新率≥15%）</li>
+                                    <li>多模态资源呈现</li>
+                                </ul>
+                            </div>
+                            <div class="glass-card">
+                                <h3>🎓 创新点五：育人创新</h3>
+                                <p><span class="highlight">三维度思政育人体系</span></p>
+                                <ul style="margin-top: 0.5rem;">
+                                    <li>数学文化传承</li>
+                                    <li>科学精神培育</li>
+                                    <li>职业素养养成</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 幻灯片12：致谢 -->
+            <div class="slide" data-slide="12">
+                <div class="thanks-slide-cover">
+                    <div class="school-header">
+                        <div class="school-logo"></div>
+                        <h2 class="school-name">西安航空职业技术学院</h2>
+                    </div>
+                    <h2 class="thanks-title">感谢聆听</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航控制 -->
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn">↑</button>
+        <button class="nav-btn" id="nextBtn">↓</button>
+    </div>
+
+    <!-- 章节指示器 -->
+    <div class="chapter-info" id="chapterInfo">
+        <span id="chapterText">封面</span>
+    </div>
+
+    <!-- 进度指示器 -->
+    <div class="indicators" id="indicators"></div>
+
+    <script>
+        // 增强的PPT控制器
+        class PPTController {
+            constructor() {
+                this.currentSlide = 1;
+                this.totalSlides = 12;
+                this.isTransitioning = false;
+                this.slideFrame = document.getElementById('slideFrame');
+                this.slides = document.querySelectorAll('.slide');
+                this.indicators = document.getElementById('indicators');
+                this.chapterText = document.getElementById('chapterText');
+                this.loader = document.getElementById('loader');
+
+                this.chapters = [
+                    '封面',
+                    '目录',
+                    '项目概述 - 背景与意义',
+                    '项目概述 - 总体目标',
+                    '研究内容 - 框架与方法',
+                    '研究内容 - 三维进阶',
+                    '核心成果 - 平台展示',
+                    '核心成果 - 教学策略',
+                    '研究方法 - 评价体系',
+                    '项目管理 - 实施计划',
+                    '创新特色',
+                    '致谢'
+                ];
+
+                this.noChapterInfoSlides = [1, 2, 12]; // 封面、目录和致谢页面索引
+
+                this.init();
+            }
+
+            init() {
+                // 隐藏加载动画
+                setTimeout(() => {
+                    this.loader.classList.add('hidden');
+                }, 1000);
+
+                this.createIndicators();
+                this.bindEvents();
+                this.updateChapterInfo();
+                this.startCounters(this.slides[0]);
+            }
+
+            createIndicators() {
+                for (let i = 1; i <= this.totalSlides; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    indicator.setAttribute('data-slide', i);
+                    if (i === 1) indicator.classList.add('active');
+                    indicator.addEventListener('click', () => this.goToSlide(i));
+                    this.indicators.appendChild(indicator);
+                }
+            }
+
+            bindEvents() {
+                // 按钮控制
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+
+                // 键盘控制
+                document.addEventListener('keydown', (e) => {
+                    if (this.isTransitioning) return;
+
+                    if (e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'ArrowLeft') {
+                        this.prevSlide();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === 'ArrowRight') {
+                        this.nextSlide();
+                        e.preventDefault();
+                    } else if (e.key === 'Home') {
+                        this.goToSlide(1);
+                        e.preventDefault();
+                    } else if (e.key === 'End') {
+                        this.goToSlide(this.totalSlides);
+                        e.preventDefault();
+                    }
+                });
+
+                // 滚轮控制（防抖）
+                let wheelEnabled = true;
+                document.addEventListener('wheel', (e) => {
+                    if (!wheelEnabled || this.isTransitioning) return;
+
+                    e.preventDefault();
+                    wheelEnabled = false;
+
+                    if (e.deltaY > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+
+                    setTimeout(() => {
+                        wheelEnabled = true;
+                    }, 800);
+                }, { passive: false });
+
+                // 触摸控制
+                let touchStartY = 0;
+                let touchStartX = 0;
+                let touchEnabled = true;
+
+                document.addEventListener('touchstart', (e) => {
+                    if (!touchEnabled || this.isTransitioning) return;
+                    touchStartY = e.changedTouches[0].screenY;
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                document.addEventListener('touchend', (e) => {
+                    if (!touchEnabled || this.isTransitioning) return;
+
+                    const touchEndY = e.changedTouches[0].screenY;
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const diffY = touchStartY - touchEndY;
+                    const diffX = touchStartX - touchEndX;
+
+                    if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 50) {
+                        touchEnabled = false;
+
+                        if (diffY > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+
+                        setTimeout(() => {
+                            touchEnabled = true;
+                        }, 800);
+                    }
+                });
+            }
+
+            goToSlide(slideNumber) {
+                if (this.isTransitioning || slideNumber === this.currentSlide ||
+                    slideNumber < 1 || slideNumber > this.totalSlides) {
+                    return;
+                }
+
+                this.isTransitioning = true;
+
+                // 添加按压效果
+                this.slideFrame.classList.add('pressing');
+
+                setTimeout(() => {
+                    // 添加退出动画
+                    const currentSlideElement = this.slides[this.currentSlide - 1];
+                    currentSlideElement.classList.add('slide-exit');
+
+                    setTimeout(() => {
+                        // 切换幻灯片
+                        this.slides.forEach(slide => {
+                            slide.classList.remove('active', 'slide-enter', 'slide-exit');
+                        });
+
+                        const newSlideElement = this.slides[slideNumber - 1];
+                        newSlideElement.classList.add('active', 'slide-enter');
+
+                        // 更新指示器
+                        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                            indicator.classList.toggle('active', index === slideNumber - 1);
+                        });
+
+                        this.currentSlide = slideNumber;
+                        this.updateChapterInfo();
+                        this.startCounters(newSlideElement);
+
+                        // 移除按压效果
+                        setTimeout(() => {
+                            this.slideFrame.classList.remove('pressing');
+                            this.isTransitioning = false;
+                        }, 200);
+                    }, 300);
+                }, 100);
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 1) {
+                    this.goToSlide(this.currentSlide - 1);
+                }
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides) {
+                    this.goToSlide(this.currentSlide + 1);
+                }
+            }
+
+            updateChapterInfo() {
+                const chapterName = this.chapters[this.currentSlide - 1] || '演示文稿';
+                this.chapterText.textContent = chapterName;
+
+                // 检查当前幻灯片是否需要隐藏章节指示器
+                if (this.noChapterInfoSlides.includes(this.currentSlide)) {
+                    document.getElementById('chapterInfo').style.display = 'none';
+                } else {
+                    document.getElementById('chapterInfo').style.display = 'block';
+                }
+            }
+
+            startCounters(slide) {
+                const counters = slide.querySelectorAll('.number-counter');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    if (!target || counter.classList.contains('counted')) return;
+
+                    counter.classList.add('counted');
+                    counter.textContent = '0';
+                    const duration = 2000;
+                    const startTime = Date.now();
+
+                    const updateCounter = () => {
+                        const elapsedTime = Date.now() - startTime;
+                        if (elapsedTime < duration) {
+                            const progress = elapsedTime / duration;
+                            const easedProgress = 1 - Math.pow(1 - progress, 3);
+                            const currentValue = Math.floor(target * easedProgress);
+                            counter.textContent = currentValue;
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+
+                    // 延迟启动计数器动画
+                    setTimeout(updateCounter, 300);
+                });
+            }
+        }
+
+        // 初始化PPT控制器
+        document.addEventListener('DOMContentLoaded', () => {
+            new PPTController();
+        });
+
+        // 链接点击处理
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' && e.target.href && e.target.href.startsWith('http')) {
+                e.preventDefault();
+                window.open(e.target.href, '_blank');
+            }
+        });
+    </script>
+</body>
+
+</html>

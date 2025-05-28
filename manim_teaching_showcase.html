@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高等数学可视化教学资源展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+            height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: calc(100vh - 200px);
+        }
+
+        .video-section, .code-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            height: calc(100% - 80px);
+        }
+
+        .video-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .video-title {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .video-description {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .code-container {
+            background: #2d3748;
+            border-radius: 15px;
+            padding: 20px;
+            height: calc(100% - 80px);
+            overflow-y: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .code-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .code-container::-webkit-scrollbar-track {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+
+        .code-container::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        .code-line {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2px;
+        }
+
+        .line-number {
+            color: #718096;
+            width: 40px;
+            text-align: right;
+            margin-right: 15px;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .code-content {
+            color: #e2e8f0;
+            flex: 1;
+        }
+
+        .keyword { color: #9f7aea; }
+        .string { color: #68d391; }
+        .comment { color: #718096; font-style: italic; }
+        .function { color: #63b3ed; }
+        .number { color: #f6ad55; }
+        .class { color: #fbb6ce; }
+
+        .chapters-overview {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .chapter-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .chapter-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 高等数学可视化教学资源</h1>
+            <p style="font-size: 1.2em; color: #7f8c8d; margin-top: 10px;">基于 Manim 动画引擎的现代数学教学可视化</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">13</span>
+                    <div class="stat-label">教学章节</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">126</span>
+                    <div class="stat-label">微课视频</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Python</span>
+                    <div class="stat-label">技术栈</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Manim</span>
+                    <div class="stat-label">动画引擎</div>
+                </div>
+            </div>
+
+            <div class="chapters-overview">
+                <h3 style="text-align: center; margin-bottom: 15px;">📚 完整章节覆盖</h3>
+                <div class="chapters-grid">
+                    <div class="chapter-item">常微分方程</div>
+                    <div class="chapter-item">导数概念</div>
+                    <div class="chapter-item">函数基础</div>
+                    <div class="chapter-item">多元函数微分</div>
+                    <div class="chapter-item">多元函数积分</div>
+                    <div class="chapter-item">概率统计</div>
+                    <div class="chapter-item">合同变换</div>
+                    <div class="chapter-item">积分应用</div>
+                    <div class="chapter-item">极限理论</div>
+                    <div class="chapter-item">空间向量</div>
+                    <div class="chapter-item">无穷级数</div>
+                    <div class="chapter-item">线性代数</div>
+                    <div class="chapter-item">复变函数</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="video-section">
+                <h2 class="section-title">🎬 教学视频展示</h2>
+                <div class="video-grid">
+                    <div class="video-item">
+                        <video controls muted>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <p>您的浏览器不支持视频播放</p>
+                        </video>
+                        <div class="video-title">导数的几何意义</div>
+                        <div class="video-description">通过动画展示导数与切线斜率的关系</div>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls muted>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <p>您的浏览器不支持视频播放</p>
+                        </video>
+                        <div class="video-title">速度与位移关系</div>
+                        <div class="video-description">可视化演示物理中的导数应用</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h2 class="section-title">💻 源代码实现</h2>
+                <div class="code-container">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-content"><span class="keyword">from</span> <span class="string">manim</span> <span class="keyword">import</span> *</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-content"><span class="keyword">class</span> <span class="class">DerivativeVisualization</span>(<span class="class">Scene</span>):</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-content">    <span class="keyword">def</span> <span class="function">construct</span>(<span class="keyword">self</span>):</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-content">        <span class="comment"># 设置场景</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-content">        <span class="keyword">self</span>.camera.background_color = <span class="string">WHITE</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-content">        <span class="comment"># 创建平滑曲线路径(深色)</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-content">        road = <span class="function">VMobject</span>(color=<span class="string">"#404040"</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-content">        road.set_points_smoothly([</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-content">            [-<span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>], [-<span class="number">1.5</span>, <span class="number">0.5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>],</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-content">            [<span class="number">1.5</span>, <span class="number">2</span>, <span class="number">0</span>], [<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>]</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-content">        ])</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">14</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">15</span>
+                        <span class="code-content">        <span class="comment"># 创建深蓝色小车</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">16</span>
+                        <span class="code-content">        car = <span class="function">Triangle</span>(fill_opacity=<span class="number">1</span>, color=<span class="string">"#000080"</span>).scale(<span class="number">0.15</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">17</span>
+                        <span class="code-content">        car.next_to(road.get_start(), <span class="string">UP</span>, buff=<span class="number">0</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">18</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">19</span>
+                        <span class="code-content">        <span class="comment"># 场景1: 0-10.31s - 汽车运动</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">20</span>
+                        <span class="code-content">        <span class="keyword">self</span>.play(<span class="function">Create</span>(road), run_time=<span class="number">2</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">21</span>
+                        <span class="code-content">        <span class="keyword">self</span>.play(</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">22</span>
+                        <span class="code-content">            <span class="function">MoveAlongPath</span>(car, road),</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">23</span>
+                        <span class="code-content">            rate_func=rate_functions.ease_in_out_sine,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">24</span>
+                        <span class="code-content">            run_time=<span class="number">6</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">25</span>
+                        <span class="code-content">        )</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">26</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">27</span>
+                        <span class="code-content">        <span class="comment"># 添加速度标注</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">28</span>
+                        <span class="code-content">        speed_label = <span class="function">Text</span>(<span class="string">"速度 = "</span>, font=<span class="string">"SimSun"</span>, color=<span class="string">"#404040"</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">29</span>
+                        <span class="code-content">        speed_formula = <span class="function">MathTex</span>(<span class="string">r"\frac{100\text{km}}{2\text{h}}"</span>, color=<span class="string">"#404040"</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">30</span>
+                        <span class="code-content">        speed_group = <span class="function">VGroup</span>(speed_label, speed_formula).arrange(<span class="string">RIGHT</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">31</span>
+                        <span class="code-content">        speed_group.next_to(road, <span class="string">UP</span> - <span class="number">1</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">32</span>
+                        <span class="code-content">        <span class="keyword">self</span>.play(<span class="function">Write</span>(speed_group), run_time=<span class="number">2</span>)</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">33</span>
+                        <span class="code-content">        <span class="keyword">self</span>.wait(<span class="number">0.319</span>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 设置视频音量为20%
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.volume = 0.2;
+                video.addEventListener('loadedmetadata', function() {
+                    this.volume = 0.2;
+                });
+            });
+        });
+
+        // 添加代码行高亮效果
+        document.querySelectorAll('.code-line').forEach(line => {
+            line.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+            });
+            line.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1670 1170" width="1670" height="1170" shape-rendering="crispEdges">
+  <!-- Definitions for gradients, filters, and markers -->
+  <defs>
+    <!-- 第一个图的样式 -->
+    <filter id="shadowEffect" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#A0AEC0" flood-opacity="0.5"/>
+    </filter>
+    
+    <!-- 第二个图的样式 -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fecaca" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bbf7d0" />
+      <stop offset="100%" stop-color="#16a34a" />
+    </linearGradient>
+
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9d5ff" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.2" />
+    </filter>
+
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-opacity="0.3" />
+    </filter>
+    
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+    
+    <marker id="orange-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f97316"/>
+    </marker>
+    
+    <marker id="red-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+    </marker>
+    
+    <marker id="green-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22c55e"/>
+    </marker>
+    
+    <marker id="arrowheadOrange" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fa8c16"/>
+    </marker>
+
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="75%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </radialGradient>
+    
+    <!-- 通用样式 -->
+    <style type="text/css">
+      rect, line, path, polygon {
+        shape-rendering: crispEdges;
+        vector-effect: non-scaling-stroke;
+      }
+      text, circle {
+        shape-rendering: geometricPrecision;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1670" height="1170" fill="rgba(255,255,255,0)" shape-rendering="crispEdges"/>
+  
+  <!-- 第一部分：原第一个SVG内容 -->
+  <g id="first-svg-content">
+    <!-- Core Philosophy Banner -->
+    <g transform="translate(13, 70)">
+      <!-- 数学工具为基 -->
+      <g transform="translate(90, 0)">
+        <rect x="-50" y="-15" width="240" height="60" rx="30" ry="30" fill="#F0F9FF" stroke="#3182CE" stroke-width="2" shape-rendering="crispEdges"/>
+        <circle cx="-10" cy="15" r="22" fill="#EBF8FF" stroke="#3182CE" stroke-width="2" shape-rendering="geometricPrecision"/>
+        <text x="-10" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#2C5282" shape-rendering="geometricPrecision">基</text>
+        <text x="100" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#2C5282" shape-rendering="geometricPrecision">数学工具为基</text>
+      </g>
+
+      <!-- 技能图谱动态匹配 -->
+      <g transform="translate(330, 15)">
+        <line x1="-50" y1="0" x2="370" y2="0" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="6 4"/>
+        <rect x="40" y="-25" width="250" height="50" rx="25" ry="25" fill="#EDF2F7" stroke="#718096" stroke-width="1.5"/>
+        <text x="165" y="0" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#4A5568">技能图谱动态匹配</text>
+      </g>
+
+      <!-- 产业应用为轴 -->
+      <g transform="translate(750, 0)">
+        <rect x="-50" y="-15" width="240" height="60" rx="30" ry="30" fill="#E6FFFA" stroke="#38B2AC" stroke-width="2" shape-rendering="crispEdges"/>
+        <circle cx="-10" cy="15" r="22" fill="#F0FFFA" stroke="#38B2AC" stroke-width="2" shape-rendering="geometricPrecision"/>
+        <text x="-10" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#22543D" shape-rendering="geometricPrecision">轴</text>
+        <text x="100" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#22543D" shape-rendering="geometricPrecision">产业应用为轴</text>
+      </g>
+
+      <!-- 价值塑造与能力培养 -->
+      <g transform="translate(1000, 15)">
+        <line x1="-60" y1="0" x2="360" y2="0" stroke="#A0AEC0" stroke-width="2" stroke-dasharray="6 4"/>
+        <rect x="40" y="-25" width="250" height="50" rx="25" ry="25" fill="#FFF5F7" stroke="#ED64A6" stroke-width="1.5"/>
+        <text x="165" y="0" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#D53F8C">价值塑造与能力培养</text>
+      </g>
+
+      <!-- 素养培育为魂 -->
+      <g transform="translate(1410, 0)">
+        <rect x="-50" y="-15" width="240" height="60" rx="30" ry="30" fill="#FFFFF0" stroke="#D69E2E" stroke-width="2" shape-rendering="crispEdges"/>
+        <circle cx="-10" cy="15" r="22" fill="#FFFEF0" stroke="#D69E2E" stroke-width="2" shape-rendering="geometricPrecision"/>
+        <text x="-10" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#744210" shape-rendering="geometricPrecision">魂</text>
+        <text x="100" y="15" font-family="Microsoft YaHei UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#744210" shape-rendering="geometricPrecision">素养培育为魂</text>
+      </g>
+    </g>
+
+    <!-- 中间设计重新调整 -->
+    <g transform="translate(260, 130)">
+      <!-- 专业接口独立框 -->
+      <rect x="10" y="0" width="350" height="50" rx="6" ry="6" fill="#4A5568" shape-rendering="crispEdges"/>
+      <text x="175" y="33" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF" shape-rendering="geometricPrecision">专业接口</text>
+
+      <!-- 星形符号分隔 -->
+      <text x="380" y="33" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4A5568">★</text>
+
+      <!-- 行业标准独立框 -->
+      <rect x="400" y="0" width="350" height="50" rx="6" ry="6" fill="#4A5568"/>
+      <text x="575" y="33" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">行业标准</text>
+
+      <!-- 星形符号分隔 -->
+      <text x="775" y="33" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4A5568">★</text>
+
+      <!-- 职业规范独立框 -->
+      <rect x="800" y="0" width="350" height="50" rx="6" ry="6" fill="#4A5568"/>
+      <text x="975" y="33" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">职业规范</text>
+    </g>
+
+    <!-- Main Structure Headers Row -->
+    <rect x="50" y="130" width="200" height="50" rx="6" ry="6" fill="#4A5568" shape-rendering="crispEdges"/>
+    <rect x="1430" y="130" width="190" height="50" rx="6" ry="6" fill="#4A5568" shape-rendering="crispEdges"/>
+    
+    <text x="150" y="163" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">基础模块</text>
+    <text x="1520" y="163" font-family="Microsoft YaHei UI, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">拓展应用</text>
+
+    <!-- Vertical dividing lines to separate columns -->
+    <line x1="260" y1="190" x2="260" y2="610" stroke="#CBD5E0" stroke-width="1.5" stroke-dasharray="6,4" shape-rendering="crispEdges"/>
+    <line x1="1420" y1="190" x2="1420" y2="610" stroke="#CBD5E0" stroke-width="1.5" stroke-dasharray="6,4" shape-rendering="crispEdges"/>
+    
+    <!-- Industry sector headers row -->
+    <rect x="50" y="190" width="200" height="40" rx="6" ry="6" fill="#FEF6E4" stroke="#D69E2E" stroke-width="1.5" shape-rendering="crispEdges"/>
+    <text x="150" y="215" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210" shape-rendering="geometricPrecision">数学知识模块</text>
+    
+    <!-- Exactly aligned industry headers -->
+    <rect x="270" y="190" width="375" height="40" rx="6" ry="6" fill="#FEE2E2" stroke="#F56565" stroke-width="1.5"/>
+    <rect x="655" y="190" width="375" height="40" rx="6" ry="6" fill="#E6F6FF" stroke="#4299E1" stroke-width="1.5"/>
+    <rect x="1040" y="190" width="375" height="40" rx="6" ry="6" fill="#E6FFFA" stroke="#48BB78" stroke-width="1.5"/>
+    
+    <text x="457" y="215" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#E53E3E">智能制造</text>
+    <text x="842" y="215" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#3182CE">电子信息</text>
+    <text x="1227" y="215" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2F855A">新能源</text>
+    
+    <rect x="1430" y="190" width="190" height="40" rx="6" ry="6" fill="#EBF8FF" stroke="#4299E1" stroke-width="1.5"/>
+    <text x="1525" y="215" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">关联职业能力</text>
+    
+    <!-- 数据行 -->
+    <g transform="translate(0, 240)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1" shape-rendering="crispEdges"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210" shape-rendering="geometricPrecision">导数与微分</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">数控机床速度加速度控制</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 15706-2012</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">通信信号变化率分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">YD/T 1484-2016</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">储能系统充放电率优化</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 36548-2018</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">变化率分析与最佳操作点</text>
+    </g>
+    
+    <g transform="translate(0, 295)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">微分方程</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">温控系统动态响应</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 20438-2006</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">电路瞬态分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 2900-2008</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">储能系统动态特性</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 36558-2018</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">动态系统建模与控制</text>
+    </g>
+    
+    <g transform="translate(0, 350)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">二重积分</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">复杂零件加工路径</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 18229-2000</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">平面天线辐射场分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 6113-2009</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">太阳能电池板受光面积</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 29196-2012</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">复杂形状与场分布计算</text>
+    </g>
+    
+    <g transform="translate(0, 405)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">矩阵与线性方程组</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">工业机器人位姿变换</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 12642-2013</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">多端口电路分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 4208-2017</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">电网负载平衡计算</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 31464-2015</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">多元线性系统与网络</text>
+    </g>
+    
+    <g transform="translate(0, 460)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">级数</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">制造过程控制精度分析</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 19001-2016</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">信号频谱分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 6113.1-2009</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">能源利用率序列预测</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 2589-2020</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">序列分析与趋势预测</text>
+    </g>
+    
+    <g transform="translate(0, 515)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">空间向量与坐标</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">3D打印路径规划</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 35351-2017</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">雷达定位系统</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 28478-2012</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">光伏阵列空间布局</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 50797-2012</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">空间定位与三维建模</text>
+    </g>
+    
+    <g transform="translate(0, 570)">
+      <rect x="50" y="0" width="200" height="45" rx="4" ry="4" fill="#F6E05E" stroke="#D69E2E" stroke-width="1"/>
+      <text x="150" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#744210">概率与统计</text>
+      
+      <rect x="270" y="0" width="375" height="45" rx="4" ry="4" fill="#FC8181" stroke="#F56565" stroke-width="1"/>
+      <text x="457" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">产品质量控制与抽检</text>
+      <text x="457" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">GB/T 2828-2012</text>
+      
+      <rect x="655" y="0" width="375" height="45" rx="4" ry="4" fill="#90CDF4" stroke="#4299E1" stroke-width="1"/>
+      <text x="842" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">通信信道噪声分析</text>
+      <text x="842" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#2A4365">GB/T 9394-2012</text>
+      
+      <rect x="1040" y="0" width="375" height="45" rx="4" ry="4" fill="#9AE6B4" stroke="#48BB78" stroke-width="1"/>
+      <text x="1227" y="20" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#22543D">风能资源概率分布</text>
+      <text x="1227" y="38" font-family="Microsoft YaHei UI, sans-serif" font-size="11" text-anchor="middle" fill="#22543D">GB/T 18710-2002</text>
+      
+      <rect x="1430" y="0" width="190" height="45" rx="4" ry="4" fill="#BEE3F8" stroke="#4299E1" stroke-width="1"/>
+      <text x="1525" y="28" font-family="Microsoft YaHei UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2A4365">不确定性分析与质控</text>
+    </g>
+    
+    <!-- 底部螺旋式进阶流程 -->
+    <g transform="translate(0, 625)">
+      <rect x="50" y="10" width="320" height="40" rx="15" ry="15" fill="#EBF8FF" stroke="#3182CE" stroke-width="1.5" filter="url(#shadowEffect)" shape-rendering="crispEdges"/>
+      <rect x="466.67" y="10" width="320" height="40" rx="15" ry="15" fill="#E6FFFA" stroke="#38B2AC" stroke-width="1.5" filter="url(#shadowEffect)" shape-rendering="crispEdges"/>
+      <rect x="883.33" y="10" width="320" height="40" rx="15" ry="15" fill="#FFFFF0" stroke="#D69E2E" stroke-width="1.5" filter="url(#shadowEffect)" shape-rendering="crispEdges"/>
+      <rect x="1300" y="10" width="320" height="40" rx="15" ry="15" fill="#EBF4FF" stroke="#4C51BF" stroke-width="1.5" filter="url(#shadowEffect)" shape-rendering="crispEdges"/>
+
+      <text x="210" y="35" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#2C5282" shape-rendering="geometricPrecision">数学原理认知</text>
+      <text x="626.67" y="35" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#22543D" shape-rendering="geometricPrecision">技术问题建模</text>
+      <text x="1043.33" y="35" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#744210" shape-rendering="geometricPrecision">职业价值塑造</text>
+      <text x="1460" y="35" font-family="Microsoft YaHei UI, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#3C366B" shape-rendering="geometricPrecision">螺旋式能力提升</text>
+
+      <!-- 箭头连接 -->
+      <polygon points="405,25 405,35 420,30" fill="#3182CE" stroke="#2B6CB0" stroke-width="1.5" shape-rendering="crispEdges"/>
+      <polygon points="420,22 420,38 440,30" fill="#3182CE" stroke="#2B6CB0" stroke-width="1.5" shape-rendering="crispEdges"/>
+      <polygon points="821.67,25 821.67,35 836.67,30" fill="#38B2AC" stroke="#319795" stroke-width="1.5" shape-rendering="crispEdges"/>
+      <polygon points="836.67,22 836.67,38 856.67,30" fill="#38B2AC" stroke="#319795" stroke-width="1.5" shape-rendering="crispEdges"/>
+
+      <!-- 圈 -->
+      <circle cx="1240.83" cy="30" r="10" fill="#FFF8E6" stroke="#D69E2E" stroke-width="2" shape-rendering="geometricPrecision"/>
+      <circle cx="1240.83" cy="30" r="5" fill="#D69E2E" shape-rendering="geometricPrecision"/>
+      <circle cx="1240.83" cy="30" r="14" fill="none" stroke="#D69E2E" stroke-width="1" stroke-dasharray="3,2" shape-rendering="geometricPrecision"/>
+    </g>
+  </g>
+
+  <!-- 第二部分：原第二个SVG内容，居中对齐 -->
+  <g id="second-svg-content" transform="translate(40, 730)">
+    <!-- 整体外框，居中对齐 -->
+    <rect x="-20" y="-15" width="1630" height="390" rx="15" ry="15" fill="white" stroke="#1e3a8a" stroke-width="2" stroke-dasharray="5,3" filter="drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08))"/>
+    
+    <!-- Section 1: Three Core Elements - TOP ROW -->
+    <g transform="translate(0, 10)">
+      <!-- First Element: 基底：数学工具 -->
+      <g transform="translate(0, 0)">
+        <circle cx="30" cy="40" r="35" fill="url(#blueGradient)" filter="url(#glow)"/>
+        <text x="30" y="46" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">基底</text>
+        <text x="95" y="35" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="bold" fill="#1e3a8a">数学工具</text>
+        <text x="95" y="70" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="bold" fill="#4b5563"><tspan fill="#3b82f6" font-weight="bold">核心能力</tspan> | 建模·算法·统计分析</text>
+        <path d="M480 40 L520 40" stroke="#3b82f6" stroke-width="3" stroke-dasharray="6,6"/>
+        <polygon points="520,40 513,36 513,44" fill="#3b82f6"/>
+      </g>
+      
+      <!-- Second Element: 内核：思政育人 -->
+      <g transform="translate(580, 0)">
+        <circle cx="30" cy="40" r="35" fill="url(#orangeGradient)" filter="url(#glow)"/>
+        <text x="30" y="46" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">内涵</text>
+        <text x="95" y="35" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="bold" fill="#1e3a8a">思政育人</text>
+        <text x="95" y="70" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="bold" fill="#4b5563"><tspan fill="#f97316" font-weight="bold">价值导向</tspan> | 家国情怀·工匠精神·科技伦理</text>
+        
+        <path d="M520 40 L560 40" stroke="#f97316" stroke-width="3" stroke-dasharray="6,6"/>
+        <polygon points="560,40 553,36 553,44" fill="#f97316"/>
+      </g>
+      
+      <!-- Third Element: 引擎：数字技术 -->
+      <g transform="translate(1160, 0)">
+        <circle cx="30" cy="40" r="35" fill="url(#greenGradient)" filter="url(#glow)"/>
+        <text x="30" y="46" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">引领</text>
+        <text x="95" y="35" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="bold" fill="#1e3a8a">数字技术</text>
+        <text x="95" y="70" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="bold" fill="#4b5563"><tspan fill="#22c55e" font-weight="bold">技术支撑</tspan> | AI·大数据·虚拟仿真</text>
+      </g>
+    </g>
+    <!-- 链条布局，去掉背景色 -->
+    <g transform="translate(0, 140)">
+      <!-- 左侧四个链条的布局 -->
+      <g>
+        <!-- ROW 1: 产教融合链 -->
+        <g transform="translate(0, 0)">
+          <text x="200" y="15" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#c2410c" text-anchor="middle">产教融合链</text>
+          
+          <!-- Industry-Education Chain -->
+          <g transform="translate(0, 30)">
+            <!-- Industry side (left) -->
+            <rect x="0" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#9a3412" stroke-width="2"/>
+            <text x="60" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#9a3412" text-anchor="middle">产业链</text>
+            <text x="60" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#9a3412" text-anchor="middle">企业协同</text>
+            
+            <!-- Industry to Education Arrow -->
+            <path d="M120 20 L170 20" stroke="#c2410c" stroke-width="2"/>
+            <path d="M230 20 L280 20" stroke="#c2410c" stroke-width="2" marker-end="url(#red-arrow)"/>
+            <text x="200" y="24" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">需求/案例</text>
+            
+            <!-- Education to Industry Arrow -->
+            <path d="M280 40 L230 40" stroke="#c2410c" stroke-width="2"/>
+            <path d="M170 40 L120 40" stroke="#c2410c" stroke-width="2" marker-end="url(#red-arrow)"/>
+            <text x="200" y="44" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">人才/技术</text>
+            
+            <!-- Education side (right) -->
+            <rect x="280" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#9a3412" stroke-width="2"/>
+            <text x="340" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#9a3412" text-anchor="middle">教育链</text>
+            <text x="340" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#9a3412" text-anchor="middle">院校培养</text>
+          </g>
+        </g>
+        
+        <!-- ROW 1: 能力培养链 -->
+        <g transform="translate(450, 0)">
+          <text x="200" y="15" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#ea580c" text-anchor="middle">能力培养链</text>
+          
+          <g transform="translate(0, 30)">
+            <rect x="0" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#c2410c" stroke-width="2"/>
+            <text x="60" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#c2410c" text-anchor="middle">技能图谱</text>
+            <text x="60" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">学科逻辑</text>
+            
+            <line x1="120" y1="30" x2="140" y2="30" stroke="#ea580c" stroke-width="2" marker-end="url(#orange-arrow)"/>
+            <line x1="140" y1="45" x2="120" y2="45" stroke="#ea580c" stroke-width="2" marker-end="url(#orange-arrow)"/>
+            
+            <rect x="140" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#c2410c" stroke-width="2"/>
+            <text x="200" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#c2410c" text-anchor="middle">岗位能力</text>
+            <text x="200" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">技能矩阵</text>
+            
+            <path d="M260 30 L280 30" stroke="#ea580c" stroke-width="2" marker-end="url(#orange-arrow)"/>
+            
+            <rect x="280" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#c2410c" stroke-width="2"/>
+            <text x="340" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#c2410c" text-anchor="middle">"三教"改革</text>
+            <text x="340" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#c2410c" text-anchor="middle">教师/材/法</text>
+          </g>
+        </g>
+
+        <!-- ROW 2: 教学实施链 -->
+        <g transform="translate(0, 130)">
+          <text x="200" y="15" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#2563eb" text-anchor="middle">教学实施链</text>
+          
+          <g transform="translate(0, 30)">
+            <rect x="0" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="60" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#1e3a8a" text-anchor="middle">场景驱动</text>
+            <text x="60" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">企业问题</text>
+            
+            <path d="M120 30 L140 30" stroke="#2563eb" stroke-width="2" marker-end="url(#blue-arrow)"/>
+            
+            <rect x="140" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="200" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#1e3a8a" text-anchor="middle">平台支撑</text>
+            <text x="200" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">资源库</text>
+            
+            <path d="M260 30 L280 30" stroke="#2563eb" stroke-width="2" marker-end="url(#blue-arrow)"/>
+            
+            <rect x="280" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="340" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#1e3a8a" text-anchor="middle">评价引领</text>
+            <text x="340" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">动态反馈</text>
+          </g>
+        </g>
+        
+        <!-- ROW 2: 问题解决链 -->
+        <g transform="translate(450, 130)">
+          <text x="200" y="15" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#16a34a" text-anchor="middle">问题解决链</text>
+          
+          <g transform="translate(0, 30)">
+            <rect x="0" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#15803d" stroke-width="2"/>
+            <text x="60" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#15803d" text-anchor="middle">建模</text>
+            <text x="60" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">问题抽象</text>
+            
+            <path d="M120 30 L140 30" stroke="#16a34a" stroke-width="2" marker-end="url(#green-arrow)"/>
+            
+            <rect x="140" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#15803d" stroke-width="2"/>
+            <text x="200" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#15803d" text-anchor="middle">拆解</text>
+            <text x="200" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">任务分层</text>
+            
+            <path d="M260 30 L280 30" stroke="#16a34a" stroke-width="2" marker-end="url(#green-arrow)"/>
+            
+            <rect x="280" y="0" width="120" height="60" rx="8" ry="8" fill="none" stroke="#15803d" stroke-width="2"/>
+            <text x="340" y="25" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="bold" fill="#15803d" text-anchor="middle">实现</text>
+            <text x="340" y="47" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">方案落地</text>
+          </g>
+        </g>
+      </g>
+      
+      <!-- 右侧可视化区域和数字闭环 -->
+      <g transform="translate(900, 0)">
+        <!-- 可视化背景框 -->
+        <rect x="0" y="-15" width="650" height="240" fill="rgba(240,248,255,0.8)" stroke="rgba(0,102,204,0.217)" stroke-width="1.5" rx="12" ry="12" filter="url(#softShadow)"/>
+        
+        <!-- 第一象限 - 3D数据立方体 -->
+        <g transform="translate(100, 55)">
+          <!-- 立方体顶面 -->
+          <path d="M-40,-20 L0,-40 L40,-20 L0,0 Z" fill="#4285f4" fill-opacity="0.7" stroke="#0066cc" stroke-width="1.5"/>
+          <!-- 立方体右侧面 -->
+          <path d="M40,-20 L40,20 L0,40 L0,0 Z" fill="#4285f4" fill-opacity="0.5" stroke="#0066cc" stroke-width="1.5"/>
+          <!-- 立方体左侧面 -->
+          <path d="M-40,-20 L-40,20 L0,40 L0,0 Z" fill="#4285f4" fill-opacity="0.3" stroke="#0066cc" stroke-width="1.5"/>
+          
+          <!-- 数据点 -->
+          <circle cx="-20" cy="-10" r="3" fill="#ffffff" filter="url(#glow)"/>
+          <circle cx="10" cy="-24" r="3" fill="#ffffff" filter="url(#glow)"/>
+          <circle cx="20" cy="-10" r="3" fill="#ffffff" filter="url(#glow)"/>
+          <circle cx="-10" cy="10" r="3" fill="#ffffff" filter="url(#glow)"/>
+          <circle cx="15" cy="15" r="3" fill="#ffffff" filter="url(#glow)"/>
+          
+          <!-- 连接线 -->
+          <line x1="-20" y1="-10" x2="10" y2="-24" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.7"/>
+          <line x1="10" y1="-24" x2="20" y2="-10" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.7"/>
+          <line x1="20" y1="-10" x2="15" y2="15" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.7"/>
+          <line x1="15" y1="15" x2="-10" y2="10" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.7"/>
+          <line x1="-10" y1="10" x2="-20" y2="-10" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.7"/>
+          
+          <!-- 标题 -->
+          <text x="0" y="-50" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#0066cc" text-anchor="middle">多维数据分析</text>
+        </g>
+        
+        <!-- 第二象限 - 神经网络可视化 -->
+        <g transform="translate(350, 55)">
+          <!-- 输入层 -->
+          <circle cx="-45" cy="-20" r="5" fill="#34a853" filter="url(#glow)"/>
+          <circle cx="-45" cy="0" r="5" fill="#34a853" filter="url(#glow)"/>
+          <circle cx="-45" cy="20" r="5" fill="#34a853" filter="url(#glow)"/>
+          
+          <!-- 隐藏层1 -->
+          <circle cx="-15" cy="-25" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="-15" cy="-8" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="-15" cy="8" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="-15" cy="25" r="5" fill="#4285f4" filter="url(#glow)"/>
+          
+          <!-- 隐藏层2 -->
+          <circle cx="15" cy="-25" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="15" cy="-8" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="15" cy="8" r="5" fill="#4285f4" filter="url(#glow)"/>
+          <circle cx="15" cy="25" r="5" fill="#4285f4" filter="url(#glow)"/>
+          
+          <!-- 输出层 -->
+          <circle cx="45" cy="-12" r="5" fill="#ea4335" filter="url(#glow)"/>
+          <circle cx="45" cy="12" r="5" fill="#ea4335" filter="url(#glow)"/>
+          
+          <!-- 连接线 -->
+          <line x1="-45" y1="-20" x2="-15" y2="-25" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="-45" y1="-20" x2="-15" y2="-8" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="-45" y1="-20" x2="-15" y2="8" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="-45" y1="-20" x2="-15" y2="25" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          
+          <line x1="-15" y1="-25" x2="15" y2="-25" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="-15" y1="-8" x2="15" y2="-8" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          
+          <line x1="15" y1="-25" x2="45" y2="-12" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="15" y1="-8" x2="45" y2="-12" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="15" y1="8" x2="45" y2="12" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          <line x1="15" y1="25" x2="45" y2="12" stroke="#0066cc" stroke-width="0.8" stroke-opacity="0.6"/>
+          
+          <!-- 标题 -->
+          <text x="0" y="-50" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#0066cc" text-anchor="middle">智能学习网络</text>
+        </g>
+        
+        <!-- 第三象限 - 数据流可视化 -->
+        <g transform="translate(100, 165)">
+          <!-- 数据流主体 -->
+          <path d="M-55,0 C-35,-28 -20,28 0,0 C20,-28 35,28 55,0" fill="none" stroke="#9333ea" stroke-width="3" stroke-opacity="0.8"/>
+          
+          <!-- 数据点 -->
+          <circle cx="-55" cy="0" r="5" fill="#9333ea" filter="url(#glow)"/>
+          <circle cx="-28" cy="-14" r="3" fill="#9333ea" filter="url(#glow)"/>
+          <circle cx="0" cy="0" r="5" fill="#9333ea" filter="url(#glow)"/>
+          <circle cx="28" cy="14" r="3" fill="#9333ea" filter="url(#glow)"/>
+          <circle cx="55" cy="0" r="5" fill="#9333ea" filter="url(#glow)"/>
+          
+          <!-- 数据流动画效果 -->
+          <circle cx="-30" cy="-8" r="2" fill="#ffffff" filter="url(#glow)">
+            <animate attributeName="cx" from="-55" to="55" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          
+          <!-- 标题 -->
+          <text x="0" y="-40" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#0066cc" text-anchor="middle">实时数据流</text>
+        </g>
+        
+        <!-- 第四象限 - 全息仪表盘 -->
+        <g transform="translate(350, 165)">
+          <!-- 外环 -->
+          <circle cx="0" cy="0" r="40" fill="none" stroke="#0066cc" stroke-width="1.5" stroke-dasharray="3,1.5"/>
+          
+          <!-- 内环 -->
+          <circle cx="0" cy="0" r="30" fill="none" stroke="#0066cc" stroke-width="1.2"/>
+          
+          <!-- 刻度线 -->
+          <line x1="0" y1="-40" x2="0" y2="-30" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="28" y1="-28" x2="21" y2="-21" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="40" y1="0" x2="30" y2="0" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="28" y1="28" x2="21" y2="21" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="0" y1="40" x2="0" y2="30" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="-28" y1="28" x2="-21" y2="21" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="-40" y1="0" x2="-30" y2="0" stroke="#0066cc" stroke-width="1.2"/>
+          <line x1="-28" y1="-28" x2="-21" y2="-21" stroke="#0066cc" stroke-width="1.2"/>
+          
+          <!-- 数据区域 -->
+          <path d="M0,0 L0,-30 A30,30 0 0,1 26,-15 Z" fill="#4285f4" fill-opacity="0.3" stroke="#4285f4" stroke-width="1.2"/>
+          <path d="M0,0 L26,-15 A30,30 0 0,1 26,15 Z" fill="#34a853" fill-opacity="0.3" stroke="#34a853" stroke-width="1.2"/>
+          <path d="M0,0 L26,15 A30,30 0 0,1 0,30 Z" fill="#fbbc05" fill-opacity="0.3" stroke="#fbbc05" stroke-width="1.2"/>
+          
+          <!-- 指针 -->
+          <line x1="0" y1="0" x2="0" y2="-25" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+          </line>
+          
+          <!-- 中心点 -->
+          <circle cx="0" cy="0" r="4" fill="#0066cc" filter="url(#glow)"/>
+          
+          <!-- 标题 -->
+          <text x="0" y="-50" font-family="Microsoft YaHei, sans-serif" font-size="16" font-weight="bold" fill="#0066cc" text-anchor="middle">全息监测系统</text>
+        </g>
+        
+        <!-- 数字闭环，右侧居中 -->
+        <g transform="translate(550, 105)">
+          <circle cx="0" cy="0" r="80" fill="#fffaf5" stroke="#ffd591" stroke-width="3" filter="url(#softShadow)"/>
+          <circle cx="0" cy="0" r="60" fill="#fffcf7" stroke="#ffd591" stroke-width="2.5" stroke-dasharray="4,2"/>
+          <circle cx="0" cy="0" r="40" fill="#fff8ee" stroke="#ffd591" stroke-width="2.5" stroke-dasharray="4,2"/>
+
+          <!-- 外部文字 -->
+          <g transform="translate(-60, 0)">
+            <text x="0" y="6" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#40a9ff">采集</text>
+          </g>
+          <g transform="translate(0, -60)">
+            <text x="0" y="6" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#40a9ff">分析</text>
+          </g>
+          <g transform="translate(60, 0)">
+            <text x="0" y="6" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#40a9ff">迭代</text>
+          </g>
+
+          <!-- 弧形箭头 -->
+          <path d="M-42 -28 A 50 50 0 0 1 -28 -42" fill="none" stroke="#ffd591" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowheadOrange)"/>
+          <path d="M28 -42 A 50 50 0 0 1 42 -28" fill="none" stroke="#ffd591" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowheadOrange)"/>
+          <path d="M42 28 A 50 50 0 0 1 28 42" fill="none" stroke="#ffd591" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowheadOrange)"/>
+          <path d="M-28 42 A 50 50 0 0 1 -42 28" fill="none" stroke="#ffd591" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowheadOrange)"/>
+
+          <!-- 内圆环 -->
+          <circle cx="0" cy="0" r="30" fill="#fff8ee" stroke="#ffd591" stroke-width="2" filter="url(#softShadow)"/>
+
+          <!-- 内部文字 -->
+          <g transform="translate(-15, -15)">
+            <text x="0" y="0" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="#096dd9">教</text>
+          </g>
+          <g transform="translate(15, -15)">
+            <text x="0" y="0" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="#096dd9">学</text>
+          </g>
+          <g transform="translate(15, 15)">
+            <text x="0" y="0" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="#096dd9">评</text>
+          </g>
+          <g transform="translate(-15, 15)">
+            <text x="0" y="0" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="#096dd9">改</text>
+          </g>
+
+          <!-- 中心点 -->
+          <circle cx="0" cy="0" r="8" fill="#ffd591" filter="url(#glow)"/>
+          <circle cx="0" cy="0" r="3" fill="#fffcf7"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

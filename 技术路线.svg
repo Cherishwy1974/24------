@@ -1,0 +1,484 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 750">
+  <!-- 定义简洁的配色方案 -->
+  <defs>
+    <!-- 轻微阴影效果 -->
+    <filter id="light-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.1" />
+    </filter>
+    
+    <!-- 添加阴影点缀效果 -->
+    <filter id="dot-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.2" />
+    </filter>
+    
+    <!-- 添加轻微发光效果 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feFlood flood-color="#ffffff" flood-opacity="0.7" result="glow-color" />
+      <feComposite operator="in" in="glow-color" in2="blur" result="glow-blur" />
+      <feComposite operator="over" in="SourceGraphic" in2="glow-blur" />
+    </filter>
+    
+    <!-- 简洁的渐变色定义 -->
+    <linearGradient id="phase-color-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="phase-color-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38BDF8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284C7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="phase-color-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="phase-color-4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FB923C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EA580C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1450" height="750" fill="#ffffff" />
+  
+  <!-- 顶部标题 -->
+ 
+  
+ 
+  <!-- 阶段1：需求分析与平台选择 -->
+  <g transform="translate(25, 20)">
+    <!-- 主卡片 -->
+    <rect x="0" y="0" width="325" height="650" rx="8" ry="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" filter="url(#light-shadow)" />
+    
+    <!-- 标题栏 -->
+    <rect x="0" y="0" width="325" height="50" rx="8" ry="8" fill="url(#phase-color-1)" />
+    <text x="162" y="33" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">需求分析与平台选择</text>
+    <circle cx="30" cy="25" r="16" fill="#ffffff" />
+    <text x="30" y="32" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4F46E5">1</text>
+    
+    <!-- 内容分组1 -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4F46E5">需求分析</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4F46E5">🔍</text>
+      
+      <!-- 项目列表 -->
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">评估现有LMS平台功能特性</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">技术支持与成本效益分析</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">系统兼容性评估</text>
+      </g>
+    </g>
+    
+    <!-- 内容分组2 -->
+    <g transform="translate(20, 260)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4F46E5">平台选择</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4F46E5">⚙️</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">现有平台二次开发</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">H5框架定制化开发</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">混合模式应用选择</text>
+      </g>
+    </g>
+    
+    <!-- 内容分组3 -->
+    <g transform="translate(20, 445)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#4F46E5">关键考量</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4F46E5">💎</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">富媒体内容呈现能力</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0E7FF" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4338CA">交互设计支持能力</text>
+      </g>
+    </g>
+    
+    <!-- 阶段输出 -->
+    <g transform="translate(20, 590)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#475569">输出: 平台选型方案</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#475569">🚀</text>
+    </g>
+  </g>
+  <!-- 阶段2：内容创作与资源开发 -->
+  <g transform="translate(375, 20)">
+    <!-- 主卡片 -->
+    <rect x="0" y="0" width="325" height="650" rx="8" ry="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" filter="url(#light-shadow)" />
+    
+    <!-- 标题栏 -->
+    <rect x="0" y="0" width="325" height="50" rx="8" ry="8" fill="url(#phase-color-2)" />
+    <text x="162" y="33" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">内容创作与资源开发</text>
+    <circle cx="30" cy="25" r="16" fill="#ffffff" />
+    <text x="30" y="32" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0EA5E9">2</text>
+    
+    <!-- 内容分组1 -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0284C7">内容数字化与结构化</text>
+      <text x="20" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0284C7">📊</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">数学知识点模块化处理</text>
+      </g>
+      
+      <g transform="translate(0, 105)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">虚拟实验室开发</text>
+      </g>
+      
+      <g transform="translate(0, 155)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">案例集与习题集数字化</text>
+      </g>
+      
+      <g transform="translate(0, 205)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">知识图谱化组织</text>
+      </g>
+    </g>
+    
+    <!-- 内容分组2 -->
+    <g transform="translate(20, 330)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0284C7">多媒体资源制作</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0284C7">🎨</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">manim教学视频动画制作</text>
+      </g>
+      
+      <g transform="translate(0, 105)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">数学可视化图形设计</text>
+      </g>
+      
+      <g transform="translate(0, 160)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">交互式课件开发</text>
+      </g>
+      
+      <g transform="translate(0, 210)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#E0F2FE" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369A1">资源标准化与元数据定义</text>
+      </g>
+    </g>
+    
+    <!-- 阶段输出 -->
+    <g transform="translate(20, 590)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#475569">输出: 数字化教学资源库</text>
+      <text x="10" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#475569">📚</text>
+    </g>
+  </g>
+  
+  <!-- 阶段3：AI功能集成与实现 - 已更新匹配布局 -->
+  <g transform="translate(725, 20)">
+    <!-- 主卡片 -->
+    <rect x="0" y="0" width="325" height="650" rx="8" ry="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" filter="url(#light-shadow)" />
+    
+    <!-- 标题栏 -->
+    <rect x="0" y="0" width="325" height="50" rx="8" ry="8" fill="url(#phase-color-3)" />
+    <text x="162" y="33" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">AI功能集成与实现</text>
+    <circle cx="30" cy="25" r="16" fill="#ffffff" />
+    <text x="30" y="32" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#10B981">3</text>
+    
+    <!-- 内容分组1 -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#059669">个性化学习引擎</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#059669">🧠</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">集成DeepSeek API</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">学习数据分析模型构建</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">动态内容推荐算法</text>
+      </g>
+      
+      <g transform="translate(0, 185)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">个性化学习路径生成</text>
+      </g>
+    </g>
+    
+    <!-- 内容分组2 -->
+    <g transform="translate(20, 305)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#059669">智能辅助系统</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#059669">🤖</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">即时AI答疑服务系统</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">学生学习行为AI分析</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">学习困难识别模型</text>
+      </g>
+      
+      <g transform="translate(0, 185)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">教师干预通知系统</text>
+      </g>
+    </g>
+    
+    <!-- 新增分组：AI评估 -->
+    <g transform="translate(20, 445)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#059669">AI评估与反馈</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#059669">📈</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">实时学习效果评估</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#D1FAE5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#047857">智能化题目难度调整</text>
+      </g>
+    </g>
+    
+    <!-- 阶段输出 -->
+    <g transform="translate(20, 590)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#475569">输出: 智能化学习系统</text>
+      <text x="15" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#475569">🔮</text>
+    </g>
+  </g>
+  
+  <!-- 阶段4：测试、部署与迭代 - 已更新匹配布局 -->
+  <g transform="translate(1075, 20)">
+    <!-- 主卡片 -->
+    <rect x="0" y="0" width="325" height="650" rx="8" ry="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" filter="url(#light-shadow)" />
+    
+    <!-- 标题栏 -->
+    <rect x="0" y="0" width="325" height="50" rx="8" ry="8" fill="url(#phase-color-4)" />
+    <text x="162" y="33" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">测试、部署与迭代</text>
+    <circle cx="30" cy="25" r="16" fill="#ffffff" />
+    <text x="30" y="32" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#F97316">4</text>
+    
+    <!-- 内容分组1 -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#EA580C">测试与验证</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#EA580C">🧪</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">核心模块功能原型测试</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">小范围内部反馈收集</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">用户体验评估</text>
+      </g>
+      
+      <g transform="translate(0, 185)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">界面与交互流程优化</text>
+      </g>
+    </g>
+    
+    <!-- 内容分组2 -->
+    <g transform="translate(20, 305)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#EA580C">部署与迭代</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#EA580C">🚀</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">选定班级小规模试点</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">全面用户反馈收集</text>
+      </g>
+      
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">平台系统优化升级</text>
+      </g>
+      
+      <g transform="translate(0, 185)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">教材内容与功能迭代更新</text>
+      </g>
+    </g>
+    
+    <!-- 新增分组：持续改进 -->
+    <g transform="translate(20, 445)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#EA580C">持续改进</text>
+      <text x="30" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#EA580C">♻️</text>
+      
+      <g transform="translate(0, 50)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">定期性能与稳定性评估</text>
+      </g>
+      
+      <g transform="translate(0, 95)">
+        <rect x="0" y="0" width="285" height="35" rx="4" ry="4" fill="#ffffff" stroke="#FFEDD5" stroke-width="1" />
+        <text x="20" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">•</text>
+        <text x="40" y="24" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#C2410C">版本更新与升级规划</text>
+      </g>
+    </g>
+    
+    <!-- 阶段输出 -->
+    <g transform="translate(20, 590)">
+      <rect x="0" y="0" width="285" height="40" rx="6" ry="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+      <text x="142" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#475569">输出: 成熟数字化教学平台</text>
+      <text x="5" y="27" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#475569">🏆</text>
+    </g>
+  </g>
+  
+  <!-- 底部时间线 - 美化版 -->
+  <g transform="translate(100, 680)">
+    <!-- 底部区域背景 -->
+    
+    <!-- 直线部分添加渐变和阴影效果 -->
+    <linearGradient id="timelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="33%" stop-color="#0EA5E9" />
+      <stop offset="66%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#F97316" />
+    </linearGradient>
+    <rect x="0" y="0" width="1200" height="5" rx="2.5" ry="2.5" fill="url(#timelineGradient)" filter="url(#light-shadow)" />
+    
+    <!-- 阶段1节点 -->
+    <g transform="translate(0, 0)">
+      <!-- 连接线 -->
+      <line x1="0" y1="-5" x2="0" y2="-15" stroke="#4F46E5" stroke-width="3" />
+      <!-- 双层圆点 -->
+      <circle cx="0" cy="0" r="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#4F46E5" />
+      <!-- 文字和图标 -->
+      <g transform="translate(0, 30)">
+        <rect x="-75" y="-15" width="150" height="30" rx="15" ry="15" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1" />
+        <text x="0" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#4F46E5">需求分析阶段</text>
+        <text x="-75" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4F46E5">🔍</text>
+      </g>
+    </g>
+    
+    <!-- 阶段2节点 -->
+    <g transform="translate(400, 0)">
+      <line x1="0" y1="-5" x2="0" y2="-15" stroke="#0EA5E9" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#F0F9FF" stroke="#0EA5E9" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#0EA5E9" />
+      <g transform="translate(0, 30)">
+        <rect x="-75" y="-15" width="150" height="30" rx="15" ry="15" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+        <text x="0" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#0284C7">平台开发阶段</text>
+        <text x="-75" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#0284C7">📊</text>
+      </g>
+    </g>
+    
+    <!-- 阶段3节点 -->
+    <g transform="translate(800, 0)">
+      <line x1="0" y1="-5" x2="0" y2="-15" stroke="#10B981" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#10B981" />
+      <g transform="translate(0, 30)">
+        <rect x="-85" y="-15" width="170" height="30" rx="15" ry="15" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1" />
+        <text x="0" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#059669">AI功能集成阶段</text>
+        <text x="-85" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#059669">🧠</text>
+      </g>
+    </g>
+    
+    <!-- 阶段4节点 -->
+    <g transform="translate(1200, 0)">
+      <line x1="0" y1="-5" x2="0" y2="-15" stroke="#F97316" stroke-width="3" />
+      <circle cx="0" cy="0" r="12" fill="#FFF7ED" stroke="#F97316" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="5" fill="#F97316" />
+      <g transform="translate(0, 30)">
+        <rect x="-85" y="-15" width="170" height="30" rx="15" ry="15" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1" />
+        <text x="0" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#EA580C">测试与部署阶段</text>
+        <text x="-85" y="5" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="18" font-weight="bold" fill="#EA580C">🚀</text>
+      </g>
+    </g>
+  </g>
+</svg>

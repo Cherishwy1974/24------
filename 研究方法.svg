@@ -1,0 +1,257 @@
+<svg width="1400" height="700" viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5e72e4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#825ee4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2dce89;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2dcecc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb6340;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbb140;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e14eca;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ba54f5;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 中央连接区域的渐变 -->
+    <radialGradient id="centralGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="integrationGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.1"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadowGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
+      <feFlood flood-color="#667eea" flood-opacity="0.3"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 箭头标记 -->
+    <marker id="arrowModern" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L0,12 L12,6 z" fill="#6c757d" opacity="0.8"/>
+    </marker>
+    
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L0,12 L12,6 z" fill="#5e72e4" opacity="0.8"/>
+    </marker>
+    
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L0,12 L12,6 z" fill="#2dce89" opacity="0.8"/>
+    </marker>
+    
+    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L0,12 L12,6 z" fill="#667eea" opacity="0.8"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  
+  <!-- 主框架 -->
+  
+  <!-- 上部分：文献分析法 -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="0" width="420" height="280" fill="#ffffff" stroke="none" rx="12" filter="url(#shadow2)"/>
+    <rect x="0" y="0" width="420" height="60" fill="url(#blueGradient)" rx="12 12 0 0"/>
+    <text x="210" y="40" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">文献分析法</text>
+    
+    <!-- 步骤内容 -->
+    <g transform="translate(30, 85)">
+      <g transform="translate(0, 0)">
+        <circle cx="10" cy="25" r="5" fill="#5e72e4"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">文献搜集与筛选</text>
+        <text x="220" y="32" font-size="21" font-weight="bold" fill="#3a55c5">建立理论基础</text>
+      </g>
+      
+      <g transform="translate(0, 60)">
+        <circle cx="10" cy="25" r="5" fill="#5e72e4"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">文献整理与分类</text>
+        <text x="220" y="32" font-size="21" font-weight="bold" fill="#3a55c5">提炼关键观点</text>
+      </g>
+      
+      <g transform="translate(0, 120)">
+        <circle cx="10" cy="25" r="5" fill="#5e72e4"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">文献分析与综合</text>
+        <text x="220" y="32" font-size="21" font-weight="bold" fill="#3a55c5">明确研究方向</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 上部分：案例分析法 -->
+  <g transform="translate(930, 90)">
+    <rect x="0" y="0" width="420" height="280" fill="#ffffff" stroke="none" rx="12" filter="url(#shadow2)"/>
+    <rect x="0" y="0" width="420" height="60" fill="url(#greenGradient)" rx="12 12 0 0"/>
+    <text x="210" y="40" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">案例分析法</text>
+    
+    <!-- 步骤内容 -->
+    <g transform="translate(30, 85)">
+      <g transform="translate(0, 0)">
+        <circle cx="10" cy="25" r="5" fill="#2dce89"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">案例选择与收集</text>
+        <text x="225" y="32" font-size="21" font-weight="bold" fill="#00a97f">确保代表性</text>
+      </g>
+      
+      <g transform="translate(0, 60)">
+        <circle cx="10" cy="25" r="5" fill="#2dce89"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">案例描述与分析</text>
+        <text x="225" y="32" font-size="21" font-weight="bold" fill="#00a97f">探讨实际效果</text>
+      </g>
+      
+      <g transform="translate(0, 120)">
+        <circle cx="10" cy="25" r="5" fill="#2dce89"/>
+        <text x="25" y="32" font-size="23" font-weight="bold" fill="#32325d">案例总结与提炼</text>
+        <text x="225" y="32" font-size="21" font-weight="bold" fill="#00a97f">提供改进参考</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 重新设计的中间连接区域 -->
+  <g transform="translate(480, 60)">
+     <g transform="translate(80, 80)">
+      <circle cx="0" cy="0" r="45" fill="#ffffff" stroke="url(#orangeGradient)" stroke-width="3" filter="url(#shadow2)"/>
+      <circle cx="0" cy="0" r="30" fill="url(#orangeGradient)"/>
+      <text x="0" y="9" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">科</text>
+      
+      <!-- 特性标签卡片 -->
+      <g transform="translate(-80, 55)">
+        <rect x="0" y="0" width="160" height="9" fill="url(#orangeGradient)" rx="22 22 0 0"/>
+        <text x="80" y="38" text-anchor="middle" font-size="21" font-weight="bold" fill="#fb6340">科学性</text>
+        <text x="80" y="60" text-anchor="middle" font-size="17" font-weight="bold" fill="#8898aa">理论基础 · 逻辑严谨</text>
+      </g>
+    </g>
+    
+    <!-- 实践性 - 右侧 -->
+    <g transform="translate(360, 80)">
+      <circle cx="0" cy="0" r="45" fill="#ffffff" stroke="url(#greenGradient)" stroke-width="3" filter="url(#shadow2)"/>
+      <circle cx="0" cy="0" r="30" fill="url(#greenGradient)"/>
+      <text x="0" y="9" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">实</text>
+      
+      <!-- 特性标签卡片 -->
+      <g transform="translate(-80, 55)">
+        <rect x="0" y="0" width="160" height="9" fill="url(#greenGradient)" rx="22 22 0 0"/>
+        <text x="80" y="38" text-anchor="middle" font-size="21" font-weight="bold" fill="#2dce89">实践性</text>
+        <text x="80" y="60" text-anchor="middle" font-size="17" font-weight="bold" fill="#8898aa">效果评估 · 应用导向</text>
+      </g>
+    </g>
+    
+    <!-- 系统性 - 下方 -->
+    <g transform="translate(220, 220)">
+      <circle cx="0" cy="0" r="45" fill="#ffffff" stroke="url(#purpleGradient)" stroke-width="3" filter="url(#shadow2)"/>
+      <circle cx="0" cy="0" r="30" fill="url(#purpleGradient)"/>
+      <text x="0" y="9" text-anchor="middle" font-size="23" font-weight="bold" fill="#ffffff">系</text>
+      
+      <!-- 特性标签卡片 -->
+      <g transform="translate(-85, 55)">
+        <rect x="0" y="0" width="170" height="9" fill="url(#purpleGradient)" rx="22 22 0 0"/>
+        <text x="85" y="38" text-anchor="middle" font-size="21" font-weight="bold" fill="#e14eca">系统性</text>
+        <text x="85" y="60" text-anchor="middle" font-size="17" font-weight="bold" fill="#8898aa">统筹规划 · 整体协调</text>
+      </g>
+    </g>
+    
+     </g>
+
+ 
+  <!-- 底部：实证研究 -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="1300" height="230" fill="#ffffff" stroke="none" rx="12" filter="url(#shadow2)"/>
+    <rect x="0" y="0" width="1300" height="60" fill="#32325d" rx="12 12 0 0"/>
+    <text x="650" y="40" text-anchor="middle" font-size="28" font-weight="bold" fill="#ffffff">实证研究</text>
+    
+    <!-- 四个步骤 -->
+    <g transform="translate(30, 75)">
+      <!-- 步骤1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="300" height="120" fill="#f6f9fc" stroke="none" rx="8"/>
+        <rect x="0" y="0" width="300" height="5" fill="#2dce89" rx="2.5 2.5 0 0"/>
+        <g transform="translate(20, 20)">
+          <text x="130" y="25" text-anchor="middle" font-size="25" font-weight="bold" fill="#2dce89">样本选择</text>
+        </g>
+        <text x="150" y="90" text-anchor="middle" font-size="21" font-weight="bold" fill="#32325d">确保多样性</text>
+      </g>
+      
+      <!-- 步骤2 -->
+      <g transform="translate(320, 0)">
+        <rect x="0" y="0" width="300" height="120" fill="#f6f9fc" stroke="none" rx="8"/>
+        <rect x="0" y="0" width="300" height="5" fill="#5e72e4" rx="2.5 2.5 0 0"/>
+        <g transform="translate(20, 20)">
+          <text x="130" y="25" text-anchor="middle" font-size="25" font-weight="bold" fill="#5e72e4">数据收集</text>
+        </g>
+        <text x="150" y="90" text-anchor="middle" font-size="21" font-weight="bold" fill="#32325d">获取一手资料</text>
+      </g>
+      
+      <!-- 步骤3 -->
+      <g transform="translate(640, 0)">
+        <rect x="0" y="0" width="300" height="120" fill="#f6f9fc" stroke="none" rx="8"/>
+        <rect x="0" y="0" width="300" height="5" fill="#fb6340" rx="2.5 2.5 0 0"/>
+        <g transform="translate(20, 20)">
+          <text x="130" y="25" text-anchor="middle" font-size="25" font-weight="bold" fill="#fb6340">数据分析</text>
+        </g>
+        <text x="150" y="90" text-anchor="middle" font-size="21" font-weight="bold" fill="#32325d">验证研究假设</text>
+      </g>
+      
+      <!-- 步骤4 -->
+      <g transform="translate(960, 0)">
+        <rect x="0" y="0" width="300" height="120" fill="#f6f9fc" stroke="none" rx="8"/>
+        <rect x="0" y="0" width="300" height="5" fill="#e14eca" rx="2.5 2.5 0 0"/>
+        <g transform="translate(20, 20)">
+          <text x="130" y="25" text-anchor="middle" font-size="25" font-weight="bold" fill="#e14eca">实证结果解释</text>
+        </g>
+        <text x="150" y="90" text-anchor="middle" font-size="21" font-weight="bold" fill="#32325d">提出改进建议</text>
+      </g>
+    </g>
+    
+    <!-- 步骤间流程指示 -->
+    <g transform="translate(0, 135)">
+      <circle cx="330" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="340" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="350" cy="0" r="3" fill="#8898aa"/>
+      
+      <circle cx="650" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="660" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="670" cy="0" r="3" fill="#8898aa"/>
+      
+      <circle cx="970" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="980" cy="0" r="3" fill="#8898aa"/>
+      <circle cx="990" cy="0" r="3" fill="#8898aa"/>
+    </g>
+  </g>
+</svg>

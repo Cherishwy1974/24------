@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1480 750" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义滤镜和渐变 -->
+  <defs>
+    <!-- 轻微阴影效果 -->
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1.5" dy="1.5" stdDeviation="1.5" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- 左侧标题栏渐变 -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5c6bc0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7986cb" stop-opacity="0.9"/>
+    </linearGradient>
+    
+    <!-- 内容区域渐变 -->
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7986cb" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5c6bc0" stop-opacity="0.8"/>
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffb74d" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff9800" stop-opacity="0.8"/>
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#81c784" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4caf50" stop-opacity="0.8"/>
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ba68c8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#9c27b0" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1480" height="750" fill="#ffffff" />
+  
+  <!-- 大外框 - 方法论环绕 -->
+  <rect x="215" y="20" width="1220" height="710" rx="10" ry="10" fill="none" stroke="#7986cb" stroke-width="2" filter="url(#softShadow)" />
+  <!-- 四个方法论步骤标记在大外框的四边 -->
+  <!-- 上边 - 理论引导 -->
+  <rect x="645" y="5" width="360" height="30" rx="15" ry="15" fill="#ffffff" />
+  <text x="825" y="25" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#4caf50" letter-spacing="2">理 论 引 导</text>
+  <circle cx="705" cy="20" r="4" fill="#81c784" />
+  <circle cx="945" cy="20" r="4" fill="#81c784" />
+  
+  <!-- 下边 - 成果推广 -->
+  <rect x="645" y="715" width="360" height="30" rx="15" ry="15" fill="#ffffff" />
+  <text x="825" y="735" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#ff9800" letter-spacing="2">成 果 推 广</text>
+  <circle cx="705" cy="730" r="4" fill="#ffb74d" />
+  <circle cx="945" cy="730" r="4" fill="#ffb74d" />
+  
+  <!-- 左边 - 技术支撑 -->
+  <rect x="200" y="230" width="30" height="290" rx="15" ry="15" fill="#ffffff" />
+  <text x="215" y="375" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#9c27b0" writing-mode="tb-rl" letter-spacing="2">技 术 支 撑</text>
+  <circle cx="215" cy="290" r="4" fill="#ba68c8" />
+  <circle cx="215" cy="460" r="4" fill="#ba68c8" />
+  
+  <!-- 右边 - 实践验证 -->
+  <rect x="1420" y="230" width="30" height="290" rx="15" ry="15" fill="#ffffff" />
+  <text x="1435" y="375" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="20" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#5c6bc0" writing-mode="tb-rl" letter-spacing="2">实 践 验 证</text>
+  <circle cx="1435" cy="290" r="4" fill="#7986cb" />
+  <circle cx="1435" cy="460" r="4" fill="#7986cb" />
+  <!-- 左侧标题栏 -->
+  <rect x="40" y="20" width="160" height="710" rx="10" ry="10" fill="#f5f7ff" stroke="#e8eaf6" stroke-width="1" filter="url(#softShadow)" />
+  
+  <!-- 左侧标题栏内容 -->
+  <rect x="40" y="20" width="160" height="118.33" rx="10 0 0 0" ry="10 0 0 0" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="75" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="22" font-weight="bold" text-anchor="middle" fill="white">研究方法论</text>
+  
+  <rect x="40" y="138.33" width="160" height="118.33" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="193" font-family="Microsoft YaHei, Arial, sans-serif"   font-size="22" font-weight="bold" text-anchor="middle" fill="white">理论基础</text>
+  
+  <rect x="40" y="256.66" width="160" height="118.33" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="320" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">四个层次</text>
+  <line x1="70" y1="330" x2="170" y2="330" stroke="white" stroke-width="1.5" stroke-opacity="0.6" />
+  <text x="120" y="350" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="1">逻辑结构</text>
+  
+  <rect x="40" y="374.99" width="160" height="118.33" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="438" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">三重融合</text>
+  <line x1="70" y1="448" x2="170" y2="448" stroke="white" stroke-width="1.5" stroke-opacity="0.6" />
+  <text x="120" y="468" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="1">设计理念</text>
+  
+  <rect x="40" y="493.32" width="160" height="118.33" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="556" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">四维一体</text>
+  <line x1="70" y1="566" x2="170" y2="566" stroke="white" stroke-width="1.5" stroke-opacity="0.6" />
+  <text x="120" y="586" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="1">研发路径</text>
+  
+  <rect x="40" y="611.65" width="160" height="118.35" rx="0 0 0 10" ry="0 0 0 10" fill="url(#titleGradient)" filter="url(#softShadow)" />
+  <text x="120" y="674" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">四位一体</text>
+  <line x1="70" y1="684" x2="170" y2="684" stroke="white" stroke-width="1.5" stroke-opacity="0.6" />
+  <text x="120" y="704" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="1">解决方案</text>
+  <!-- 右侧内容区域 -->
+  <!-- 1. 研究方法论部分 -->
+  <!-- 研究方法论四个要点 - 卡片式设计 -->
+  <g transform="translate(240, 55)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">设计-实施-分析-重设计</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">循环迭代研究过程</text>
+  </g>
+  
+  <g transform="translate(640, 55)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">多学科理论整合应用</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">跨学科知识融合</text>
+  </g>
+  
+  <g transform="translate(1040, 55)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">迭代优化与实践验证</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">持续改进与实证研究</text>
+  </g>
+  
+  <!-- 2. 理论基础部分 -->
+  
+  <!-- 理论基础三个要点 - 卡片式设计 -->
+  <g transform="translate(240, 166.6)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">建构主义学习理论</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">学习者主动建构知识</text>
+  </g>
+  
+  <g transform="translate(640, 166.6)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">数字化学习环境设计理论</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">数字环境中的交互设计</text>
+  </g>
+  
+  <g transform="translate(1040, 166.6)">
+    <rect width="365" height="80" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">人工智能辅助教学理论</text>
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">AI技术促进个性化学习</text>
+  </g>
+  <!-- 3. 四个层次部分 -->
+  
+  <!-- 四个层次标题 - 流程图式设计 -->
+  <g transform="translate(240, 273.2)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">理论层</text>
+    
+    <text x="77.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">数字化教学</text>
+    <text x="132.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">|</text>
+    <text x="179.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">智能教育</text>
+  </g>
+  
+  <g transform="translate(540, 273.2)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">设计层</text>
+    
+    <text x="66.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">教材体系</text>
+    <text x="132.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">|</text>
+    <text x="198.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">功能架构</text>
+  </g>
+  
+  <g transform="translate(840, 273.2)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">技术层</text>
+    
+    <text x="66.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">平台搭建</text>
+    <text x="132.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">|</text>
+    <text x="198.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">智能算法</text>
+  </g>
+  
+  <g transform="translate(1140, 273.2)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#7986cb" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#blueGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">应用层</text>
+    
+    <text x="66.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">教学模式</text>
+    <text x="132.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">|</text>
+    <text x="198.5" y="70" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#3f51b5">效果验证</text>
+  </g>
+  
+  <!-- 4. 设计理念部分 -->
+  
+  <!-- 三重融合设计理念 - 卡片式设计 -->
+  <g transform="translate(240, 384.8)">
+    <rect width="365" height="90" rx="6" ry="6" fill="#ffffff" stroke="#ff9800" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#orangeGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">学科知识与职业场景融合</text>
+    
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">将数学概念与航空专业真实</text>
+    <text x="182.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">工作场景深度结合</text>
+  </g>
+  
+  <g transform="translate(640, 384.8)">
+    <rect width="365" height="90" rx="6" ry="6" fill="#ffffff" stroke="#ff9800" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#orangeGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">数字技术与教学方法融合</text>
+    
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">AI智能推荐、数据分析与</text>
+    <text x="182.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">创新教学方法结合</text>
+  </g>
+  
+  <g transform="translate(1040, 384.8)">
+    <rect width="365" height="90" rx="6" ry="6" fill="#ffffff" stroke="#ff9800" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="365" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#orangeGradient)" />
+    <text x="182.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">线上资源与线下活动融合</text>
+    
+    <text x="182.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">线上自主学习与线下教师引导、</text>
+    <text x="182.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">实践操作结合</text>
+  </g>
+  
+  <!-- 5. 研发路径部分 -->
+  
+  <!-- 四维一体研发路径 - 卡片式设计 -->
+  <g transform="translate(240, 496.4)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#4caf50" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#greenGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">需求分析维度</text>
+    
+    <text x="132.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">多方调研，把握学情、</text>
+    <text x="132.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">教情和专业需求</text>
+  </g>
+  
+  <g transform="translate(540, 496.4)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#4caf50" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#greenGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">内容建设维度</text>
+    
+    <text x="132.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">重构内容体系、开发</text>
+    <text x="132.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">数字化学习资源</text>
+  </g>
+  
+  <g transform="translate(840, 496.4)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#4caf50" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#greenGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">技术赋能维度</text>
+    
+    <text x="132.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">AI个性化学习支持与</text>
+    <text x="132.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">智能辅导功能</text>
+  </g>
+  
+  <g transform="translate(1140, 496.4)">
+    <rect width="265" height="90" rx="6" ry="6" fill="#ffffff" stroke="#4caf50" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="265" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#greenGradient)" />
+    <text x="132.5" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">应用评价维度</text>
+    
+    <text x="132.5" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">科学评价体系、实证</text>
+    <text x="132.5" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">研究应用效果</text>
+  </g>
+  
+  <!-- 6. 解决方案部分 -->
+  
+  <!-- 四位一体解决方案 - 卡片式设计 -->
+  <g transform="translate(240, 608)">
+    <rect width="260" height="90" rx="6" ry="6" fill="#ffffff" stroke="#9c27b0" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="260" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#purpleGradient)" />
+    <text x="130" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">平台选型方案</text>
+    
+    <text x="130" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">评估LMS平台特性、</text>
+    <text x="130" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">进行二次开发</text>
+  </g>
+  
+  <g transform="translate(540, 608)">
+    <rect width="260" height="90" rx="6" ry="6" fill="#ffffff" stroke="#9c27b0" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="260" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#purpleGradient)" />
+    <text x="130" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">数字化教学资源库</text>
+    
+    
+    <text x="130" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">航空专业特色的数学</text>
+    <text x="130" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">教学资源体系</text>
+  </g>
+  
+  <g transform="translate(840, 608)">
+    <rect width="260" height="90" rx="6" ry="6" fill="#ffffff" stroke="#9c27b0" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="260" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#purpleGradient)" />
+    <text x="130" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">智能化学习系统</text>
+    
+    
+    <text x="130" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">个性化学习推荐、</text>
+    <text x="130" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">学习行为分析模块</text>
+  </g>
+  
+  <g transform="translate(1140, 608)">
+    <rect width="260" height="90" rx="6" ry="6" fill="#ffffff" stroke="#9c27b0" stroke-width="1.5" filter="url(#softShadow)" />
+    <rect width="260" height="40" rx="6 6 0 0" ry="6 6 0 0" fill="url(#purpleGradient)" />
+    <text x="130" y="25" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">成熟数字化教学平台</text>
+    
+    
+    <text x="130" y="65" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">可推广应用的高职数学</text>
+    <text x="130" y="85" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#6a1b9a">整体解决方案</text>
+  </g>
+  
+ 
+</svg>
